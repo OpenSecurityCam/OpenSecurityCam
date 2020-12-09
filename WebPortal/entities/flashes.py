@@ -17,3 +17,6 @@ class Flashes:
 
     def NotLoggedIn():
         return flash("You are not logged in!")
+    
+    def PassNotMatch():
+        return flash("Passwords don't match")
