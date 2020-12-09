@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename="css/main.css" )}}">
+        {% block head%} {% endblock %}
+    </head>
+    <body>
+        <div class="TopBar">
+            <div class="NavBar">
+                <h1>Welcome to my personal website</h1>
+                <div class="NavBar">
+                    <a class="NavBarLink" href="/">Main Page</a>
+                    {% if userInfo: %}
+                        <a class="NavBarLink" href="{{url_for('userinfo')}}">{{userInfo}}</a>
+                        <a class="NavBarLink" href="{{url_for('logout')}}">Log Out</a>
+                    {% else: %}  
+                        <a class="NavBarLink" href="/login">Login</a>
+                    {% endif %}
+                    <br>
+                </div>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages: %}
+                        {% for msg in messages %}
+                            <p1>{{msg}}</p1>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+        {% block body %} {% endblock %}
+    </body>
+</html
