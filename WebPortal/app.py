@@ -59,13 +59,18 @@ def register():
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
-        foundUser = User.query.filter_by(passcode = request.form['passcode']).first()
-        if foundUser:
-            session['user'] = foundUser.username
-            flashMSG.LoginSuccessful()
-            return redirect(url_for("Main"))
-        else: 
-            flashMSG.WrongPasscode()
+        passcodeForm = request.form['passcode']
+        if passcodeForm:
+            foundUser = User.query.filter_by(passcode = passcodeForm).first()
+            if foundUser:
+                session['user'] = foundUser.username
+                flashMSG.LoginSuccessful()
+                return redirect(url_for("Main"))
+            else: 
+                flashMSG.WrongPasscode()
+                return redirect(url_for('login'))
+        else:
+            flashMSG.InvalidOperation()
             return redirect(url_for('login'))
     else:
         if 'user' in session:
