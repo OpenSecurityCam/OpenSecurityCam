@@ -26,7 +26,7 @@ def Main():
     if 'user' in session:
         return render_template('html/index.html', userInfo = session['user'])
     else:
-        return render_template('html/index.html')
+        return redirect(url_for('login'))
 
 
 @app.route('/register', methods=['POST', 'GET'])
@@ -87,16 +87,20 @@ def userinfo():
                     db.session.commit()
                     session['user'] = foundUser.username
                     flashMSG.CredentialChanged()
-                    return redirect(url_for('userinfo'))
+                    return redirect(url_for('logout'))
                 else:
                     flashMSG.WrongPasscode()
                     return redirect(url_for('userinfo'))
             elif passcodeForm != newPasscodeForm:
                 foundUser = User.query.filter_by(passcode = passcodeForm).first()
                 if foundUser:
-                    pass
+                    foundUser.passcode = newPasscodeForm
+                    db.session.commit()
+                    flashMSG.CredentialChanged()
+                    return redirect(url_for('logout'))
             else:
-                return "Error"
+                flashMSG.InvalidOperation()
+                return redirect(url_for('userinfo'))
         else:
             return render_template('html/userinfo.html', userInfo = session['user'])
     else:

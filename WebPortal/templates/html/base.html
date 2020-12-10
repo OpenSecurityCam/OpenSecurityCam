@@ -8,8 +8,8 @@
             <div class="NavBar">
                 <h1>LibreSecurityCam WebPortal</h1>
                 <div class="NavBar">
-                    <a class="NavBarLink" href="/">Main Page</a>
                     {% if userInfo: %}
+                        <a class="NavBarLink" href="/">Main Page</a>
                         <a class="NavBarLink" href="{{url_for('userinfo')}}">{{userInfo}}</a>
                         <a class="NavBarLink" href="{{url_for('logout')}}">Log Out</a>
                     {% else: %}  

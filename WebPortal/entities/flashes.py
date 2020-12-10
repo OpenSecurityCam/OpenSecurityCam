@@ -6,17 +6,17 @@ class Flashes:
     def AlreadyLoggedIn():
         return flash("Already Logged In")
     
-    def NameChanged():
-        return flash("Name changed successfully")
-    
     def HaventLoggedIn():
         return flash("You haven't logged in yet")
     
-    def LoggedOut():
-        return flash("You have been logged out!", "info")
-
     def NotLoggedIn():
         return flash("You are not logged in!")
+
+    def LoggedOut():
+        return flash("You have been logged out!", "info")
+    
+    def NameChanged():
+        return flash("Name changed successfully")
     
     def PassNotMatch():
         return flash("Passwords don't match")
@@ -26,3 +26,6 @@ class Flashes:
     
     def CredentialChanged():
         return flash("Credentials Changed")
+    
+    def InvalidOperation():
+        return flash("Invalid Operation")
