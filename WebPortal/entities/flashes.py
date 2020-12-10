@@ -20,3 +20,9 @@ class Flashes:
     
     def PassNotMatch():
         return flash("Passwords don't match")
+    
+    def WrongPasscode():
+        return flash("Wrong Passcode")
+    
+    def CredentialChanged():
+        return flash("Credentials Changed")

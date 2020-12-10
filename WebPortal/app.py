@@ -28,15 +28,16 @@ def Main():
     else:
         return render_template('html/index.html')
 
+
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
         username = request.form['username']
         passcodeForm = request.form['passcode']
         if passcodeForm == request.form['repeatPasscode']:
-            found_user = User.query.filter_by(passcode = passcodeForm).first()
-            if found_user:
-                flash("User found")
+            foundUser = User.query.filter_by(passcode = passcodeForm).first()
+            if foundUser:
+                flash("Can't create user with the same credentials")
                 return redirect(url_for('register'))
             else:
                 session['user'] = username
@@ -54,13 +55,18 @@ def register():
             return redirect(url_for("Main"))
         return render_template('html/register.html')
 
+
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
-        session['user'] = request.form['name']
-        session['password'] = request.form['passcode']
-        flashMSG.LoginSuccessful()
-        return redirect(url_for("Main"))
+        foundUser = User.query.filter_by(passcode = request.form['passcode']).first()
+        if foundUser:
+            session['user'] = foundUser.username
+            flashMSG.LoginSuccessful()
+            return redirect(url_for("Main"))
+        else: 
+            flashMSG.WrongPasscode()
+            return redirect(url_for('login'))
     else:
         if 'user' in session:
             flashMSG.AlreadyLoggedIn()
@@ -71,13 +77,26 @@ def login():
 def userinfo():
     if 'user' in session:
         if request.method == 'POST':
-            session['user'] = request.form['name']
-            if request.form['currentPasscode'] == session['password']:
-                session['password'] = request.form['newPasscode']
+            usernameForm = request.form['username']
+            passcodeForm = request.form['currentPasscode'] 
+            newPasscodeForm = request.form['newPasscode']
+            if usernameForm and passcodeForm == newPasscodeForm:
+                foundUser = User.query.filter_by(passcode = passcodeForm).first()
+                if foundUser:
+                    foundUser.username = usernameForm
+                    db.session.commit()
+                    session['user'] = foundUser.username
+                    flashMSG.CredentialChanged()
+                    return redirect(url_for('userinfo'))
+                else:
+                    flashMSG.WrongPasscode()
+                    return redirect(url_for('userinfo'))
+            elif passcodeForm != newPasscodeForm:
+                foundUser = User.query.filter_by(passcode = passcodeForm).first()
+                if foundUser:
+                    pass
             else:
-                flash("Current Passcode is wrong")
-            flashMSG.NameChanged()
-            return render_template('html/userinfo.html', userInfo = session['user'])
+                return "Error"
         else:
             return render_template('html/userinfo.html', userInfo = session['user'])
     else:
