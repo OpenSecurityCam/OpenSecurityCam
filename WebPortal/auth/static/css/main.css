@@ -28,17 +28,30 @@ p1
     font-size: 20px;
     width: 100%;
 }
-.form
+.formText
 {
     color: white;
 }
-input
+.formInput
 {
-    width: 70%;
-    height: 5%;
-    font-size: 120%;
+    width: 85%;
 }
-.text
+.flashSuccess
 {
-    height: 20%;
+    background-color: green;
+}
+.flashFailed
+{
+    background-color: red;
+}
+p5
+{
+    color: white;
+    font-size: 10px;
+}
+form
+{
+    background-color: blueviolet;
+    width: 50%;
+    margin: auto;
 }
