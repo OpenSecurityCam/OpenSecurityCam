@@ -1,17 +1,20 @@
+from flask.globals import request
+import flask_login
+from wtforms.validators import ValidationError
 from auth.models import users
 from flask.helpers import flash
 from werkzeug.utils import redirect
 from auth import app, bcrypt, db 
 from flask_login import login_user, current_user, logout_user
 from flask import render_template, url_for
-from auth.forms import LoginForm, RegisterForm
+from auth.forms import LoginForm, RegisterForm, UpdateUserForm
 
 @app.route('/')
 def main():
     if current_user.is_authenticated:
-        return render_template('html/index.html', userInfo = current_user.username)
-    else:
         return render_template('html/index.html')
+    else:
+        return redirect(url_for('login'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -32,8 +35,9 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        flash("Already Logged in", 'Failed')
-        return redirect(url_for('main'))
+        if current_user.isAdmin == False:
+            flash("Can't register, unless you're an admin", 'Failed')
+            return redirect(url_for('main'))
     registerForm = RegisterForm()
     if registerForm.validate_on_submit():
         hashedPass = bcrypt.generate_password_hash(registerForm.password.data).decode('utf-8')
@@ -44,9 +48,24 @@ def register():
         return redirect(url_for('login'))
     return render_template('html/register.html', form = registerForm)
 
-@app.route('/userinfo')
+@app.route('/userinfo', methods=['GET', 'POST'])
 def userinfo():
-    pass
+    if current_user.is_authenticated: 
+        updateUser = UpdateUserForm()
+        if updateUser.validate_on_submit():
+            if bcrypt.check_password_hash(current_user.password, updateUser.password.data):
+                flash('Successfully changed credentials', 'Success')
+                current_user.username = updateUser.username.data
+            else:
+                flash('Incorrect Password', 'Failed')
+        elif request.method == 'GET':
+            updateUser.username.data = current_user.username
+            if users.query.filter(users.isAdmin.is_(False)):
+                flash('SERIOUS SECURITY WARNING!!! There is still no admin account created!!', 'Warning')
+        return render_template('html/userinfo.html', form=updateUser)
+    else:
+        flash("Not logged in yet", 'Failed')
+        return redirect(url_for('login'))
 
 @app.route('/logout')
 def logout():
