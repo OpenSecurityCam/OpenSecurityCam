@@ -11,6 +11,7 @@
    <form action="#" method='POST'>
         {{form.hidden_tag()}}
         {{form.username.label(class='formText')}}
+        <br>
         {{form.username(class='formInput')}}
         
         {% if form.username.errors %}
@@ -20,6 +21,7 @@
         {% endif %}
         <br>
         {{form.password.label(class="formText")}}
+        <br>
         {{form.password(class="formInput")}}
         {% if form.password.errors %}
             {% for error in form.password.errors%}
@@ -28,6 +30,7 @@
         {% endif %}
         <br>
         {{form.confirmPass.label(class='formText')}}
+        <br>
         {{form.confirmPass(class='formInput')}}
         {% if form.confirmPass.errors %}
             {% for error in form.confirmPass.errors %}

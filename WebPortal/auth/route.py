@@ -51,18 +51,24 @@ def register():
 @app.route('/userinfo', methods=['GET', 'POST'])
 def userinfo():
     if current_user.is_authenticated: 
-        updateUser = UpdateUserForm()
-        if updateUser.validate_on_submit():
-            if bcrypt.check_password_hash(current_user.password, updateUser.password.data):
-                flash('Successfully changed credentials', 'Success')
-                current_user.username = updateUser.username.data
+        updateUserForm = UpdateUserForm()
+        if updateUserForm.validate_on_submit():
+            if bcrypt.check_password_hash(current_user.password, updateUserForm.password.data):
+                currentUserDB = users.query.filter_by(username = current_user.username).first()
+                if currentUserDB:
+                    currentUserDB.username = updateUserForm.username.data
+                    db.session.commit()
+                    flash('Successfully changed credentials', 'Success')
+                    current_user.username = updateUserForm.username.data
+                else:
+                    flash(f'Failed to change credentials', 'Failed')
             else:
                 flash('Incorrect Password', 'Failed')
         elif request.method == 'GET':
-            updateUser.username.data = current_user.username
+            updateUserForm.username.data = current_user.username
             if users.query.filter(users.isAdmin.is_(False)):
                 flash('SERIOUS SECURITY WARNING!!! There is still no admin account created!!', 'Warning')
-        return render_template('html/userinfo.html', form=updateUser)
+        return render_template('html/userinfo.html', form=updateUserForm)
     else:
         flash("Not logged in yet", 'Failed')
         return redirect(url_for('login'))
