@@ -1,10 +1,10 @@
 {% extends 'base.html'%}
 
 {% block head %}
-<title>Main Page</title>
+<title>Live Feed</title>
 {% endblock %}
 
-{% block body %} 
-<h1>LibreSecurityCam WebPortal</h1>
-<p1 class="paragraph">This is the main page. The project is not finished yet!</p1>
-{% endblock body %}
+{% block body %}
+<h2>Live Video Feed</h2>
+<img src="{{url_for('main.video_feed')}}" />
+{% endblock %}

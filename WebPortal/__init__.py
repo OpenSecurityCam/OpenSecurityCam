@@ -19,13 +19,13 @@ def create_WebPortal(config_class = Config):
     loginMan.init_app(app)
 
     from WebPortal.authentication.routes import authenticate
-    from WebPortal.main.routes import main
     from WebPortal.usercontrol.routes import userctrl
-    from WebPortal.videofeed.routes import video
+    from WebPortal.videofeed.routes import main
+
 
     app.register_blueprint(authenticate)
     app.register_blueprint(main)
     app.register_blueprint(userctrl)
-    app.register_blueprint(video)
+    app.register_blueprint(main)
 
     return app
