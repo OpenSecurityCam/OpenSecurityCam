@@ -1,19 +1,19 @@
-{% extends 'html/base.html'%}
-
+{% extends 'base.html'%}
 
 {% block head %}
-    <title>User Information</title>
+    <title>
+        Login
+    </title>
 {% endblock head %}
     
 
 {% block body %}
-   <h2>Hello, {{current_user.username}}</h2>
-   <form action="#" method='POST'>
+    <form action="" method='POST'>
+        <h2>Login</h2>
         {{form.hidden_tag()}}
-        {{form.username.label(class='formText')}}
+        {{form.username.label(class="formText")}}
         <br>
-        {{form.username(class='formInput')}}
-        
+        {{form.username(class="formInput")}}
         {% if form.username.errors %}
             {% for error in form.username.errors%}
                 <br><p5>{{error}}</p5>
@@ -29,16 +29,10 @@
             {% endfor %}
         {% endif %}
         <br>
-        {{form.confirmPass.label(class='formText')}}
+        {{form.stayLoggedIn()}}
+        {{form.stayLoggedIn.label(class="formText")}}
         <br>
-        {{form.confirmPass(class='formInput')}}
-        {% if form.confirmPass.errors %}
-            {% for error in form.confirmPass.errors %}
-                <br><p5>{{error}}</p5>
-            {% endfor %}
-        {% endif %}
-        <br>
-        {{form.submit()}}
-    </form>
+        {{form.submit(class='a')}}
+        </form>
 {% endblock body %}
     

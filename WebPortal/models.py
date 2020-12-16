@@ -1,4 +1,4 @@
-from auth import db, loginMan
+from WebPortal import db, loginMan
 from flask_login import UserMixin
 
 @loginMan.user_loader
