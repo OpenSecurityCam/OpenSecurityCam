@@ -1,11 +1,12 @@
-from flask import Blueprint, redirect, url_for, render_template
+from flask import Blueprint, redirect, url_for, render_template, flash
 
 from flask_login import current_user
 from werkzeug.wrappers import Response
 from WebPortal.videofeed.camera import VideoCamera
 
-
 main = Blueprint('main', __name__)
+
+video_stream = VideoCamera()
 
 @main.route('/')
 def home():
@@ -14,14 +15,12 @@ def home():
     else:
         return redirect(url_for('authentication.login'))
 
-vidstr = VideoCamera()
-
-def gen(camera = vidstr):
+def gen(stream):
     while True:
-        frame = camera.get_frame()
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+        frame = stream.get_frame()
+        yield (frame)
 
 @main.route('/video_feed')
 def video_feed():
-    return Response(gen(),mimetype='multipart/x-mixed-replace; boundary=frame')
+        return Response(gen(video_stream))
+    
