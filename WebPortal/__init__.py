@@ -4,13 +4,21 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
 from WebPortal.config import Config
+from WebPortal.videofeed.camera import Cam
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 loginMan = LoginManager()
+cam = Cam(-1)
+
+def gen(camera = cam):
+    while True:
+        frame = camera.GetAFrame()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
 
 def create_WebPortal(config_class = Config):
-    pass
     app = Flask(__name__)
     app.config.from_object(Config)
     
@@ -21,7 +29,6 @@ def create_WebPortal(config_class = Config):
     from WebPortal.authentication.routes import authenticate
     from WebPortal.usercontrol.routes import userctrl
     from WebPortal.videofeed.routes import main
-
 
     app.register_blueprint(authenticate)
     app.register_blueprint(main)

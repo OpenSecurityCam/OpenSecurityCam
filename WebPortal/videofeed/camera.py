@@ -1,15 +1,9 @@
 import cv2
 class Cam:
-    def get_frames():
-        video = cv2.VideoCapture(0)
+    def __init__(self, camera_num):
+        self.video = cv2.VideoCapture(camera_num)
 
-        while True:
-            ret, frame = video.read()
-
-            ret, jpeg = cv2.imencode('.jpg', frame)
-
-            frame = jpeg.tostring()
-            yield (b'--frame\r\n'
-                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-    
-        del(video)
+    def GetAFrame(self):
+        ret, frame = self.video.read()
+        ret, jpeg = cv2.imencode('.jpg', frame)
+        return jpeg.tostring()
