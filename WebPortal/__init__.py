@@ -9,15 +9,6 @@ from WebPortal.videofeed.camera import Cam
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 loginMan = LoginManager()
-cam = Cam(-1)
-
-def gen(camera = cam):
-    while True:
-        frame = camera.GetAFrame()
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-
-
 def create_WebPortal(config_class = Config):
     app = Flask(__name__)
     app.config.from_object(Config)
