@@ -20,7 +20,7 @@ def home():
     else:
         return redirect(url_for('authentication.login'))  
 
-@main.route('/video/<string:file_name>')
+@main.route('/<string:file_name>')
 def stream(file_name):
     video_dir = './videofeed/video'
     return send_from_directory(directory=video_dir, filename=file_name)
