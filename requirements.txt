@@ -1,9 +1,5 @@
-apparmor==3.0.1
-appdirs==1.4.4
-asn1crypto==1.4.0
 bcrypt==3.2.0
 Beaker==1.11.0
-btrfsutil==5.9
 CacheControl==0.12.6
 cairocffi==1.2.0
 CairoSVG==2.5.1
@@ -34,16 +30,11 @@ imutils==0.5.3
 install==1.3.4
 itsdangerous==1.1.0
 Jinja2==2.11.2
-lensfun==0.3.95
-LibAppArmor==3.0.1
-lit==0.11.1.dev0
-lutris==0.5.8.1
 Mako==1.1.3
 Markdown==3.3.3
 MarkupSafe==1.1.1
 msgpack==1.0.2
 mysqlclient==2.0.1
-netsnmp-python==1.0a1
 numpy==1.19.4
 opencv-contrib-python==4.4.0.46
 ordered-set==4.0.2
@@ -53,8 +44,6 @@ Pillow==8.1.0
 ply==3.11
 progress==1.5
 psutil==5.8.0
-pwquality==1.4.4
-pyalsa==1.1.6
 pycairo==1.20.0
 pycparser==2.20
 PyGObject==3.38.0
@@ -63,7 +52,6 @@ pyparsing==2.4.7
 pyperclip==1.7.0
 python-magic==0.4.18
 python-xlib==0.29
-pyudev==0.22.0.dev20201112
 PyYAML==5.3.1
 requests==2.25.1
 resolvelib==0.5.4
@@ -71,7 +59,6 @@ retrying==1.3.3
 six==1.15.0
 SQLAlchemy==1.3.20
 svgwrite==1.3.1
-team==1.0
 tinycss2==1.1.0
 toml==0.10.2
 urllib3==1.26.2
