@@ -19,8 +19,8 @@ def register():
         if current_user.isAdmin == False:
             flash("Can't register, unless you're an admin", 'Failed')
     registerForm = RegisterForm()
-    RegisterUser(registerForm)
-    return render_template('register.html', form = registerForm)
+    return RegisterUser(registerForm)
+    
 
 @authenticate.route('/logout')
 def logout():
