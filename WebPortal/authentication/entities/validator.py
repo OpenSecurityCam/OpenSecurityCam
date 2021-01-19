@@ -1,16 +1,14 @@
 from flask import flash, url_for, redirect, render_template
-from flask_login import login_user
+from flask_login import login_user, current_user
 
 from WebPortal.authentication.forms import LoginForm
 from WebPortal.models import users
 from WebPortal import db, bcrypt
 
 class Validator():
-    def __init__(self, current_user):
-        self.__current_user = current_user
-
-    def FindUserAndLogin(self, loginForm):
-        if self.__current_user.is_authenticated:
+    def FindUserAndLogin(self):
+        loginForm = LoginForm()
+        if current_user.is_authenticated:
             return self.__UserIsLoggedIn()
         if loginForm.validate_on_submit():
             return self.__FindUser(loginForm)

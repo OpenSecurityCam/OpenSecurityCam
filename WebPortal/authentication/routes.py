@@ -3,23 +3,20 @@ from flask_login import login_user, current_user, logout_user
 
 from WebPortal.authentication.forms import RegisterForm, LoginForm
 from WebPortal.authentication.entities.validator import Validator
-from WebPortal.authentication.entities.registrator import RegisterUser, CheckIfUserIsAdmin
+from WebPortal.authentication.entities.registrator import Registrator
 
 authenticate = Blueprint('authentication', __name__)
 
 @authenticate.route('/login', methods=['GET', 'POST'])
 def login():
-    loginForm = LoginForm()
-    validator = Validator(current_user)
-    return validator.FindUserAndLogin(loginForm)
+    validator = Validator()
+    return validator.FindUserAndLogin()
 
 @authenticate.route('/register', methods=['GET', 'POST'])
 def register():
-    if current_user.is_authenticated:
-        if current_user.isAdmin == False:
-            flash("Can't register, unless you're an admin", 'Failed')
     registerForm = RegisterForm()
-    return RegisterUser(registerForm)
+    registrator = Registrator()
+    return registrator.RegisterUser()
     
 
 @authenticate.route('/logout')
