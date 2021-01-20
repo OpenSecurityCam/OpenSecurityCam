@@ -16,8 +16,8 @@ class Registrator:
             except:
                 flash("Something went wrong with the registration", 'Failed')
         else:
-            return redirect(url_for('main.home'))
             flash("You can't register a user, unless you're an admin", 'Failed')
+            return redirect(url_for('main.home'))
         return render_template('register.html', form = registerForm)
 
     def __RegisterTheUser(self, registerForm):
