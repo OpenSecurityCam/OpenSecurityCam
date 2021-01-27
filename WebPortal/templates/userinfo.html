@@ -7,38 +7,12 @@
     
 
 {% block body %}
-   <h2>Hello, {{current_user.username}}</h2>
-   <form action="#" method='POST'>
-        {{form.hidden_tag()}}
-        {{form.username.label(class='formText')}}
+   <h1>Hello, {{current_user.username}}</h1>
+   <h2>Admin Account: {{current_user.isAdmin}}</h2>
+   {%if current_user.isAdmin%}
+        <a class="NavBarLink" href="{{url_for('usercontrol.credentialChanger')}}">Credential Changer</a>
         <br>
-        {{form.username(class='formInput')}}
-        
-        {% if form.username.errors %}
-            {% for error in form.username.errors%}
-                <br><p5>{{error}}</p5>
-            {% endfor %}
-        {% endif %}
-        <br>
-        {{form.password.label(class="formText")}}
-        <br>
-        {{form.password(class="formInput")}}
-        {% if form.password.errors %}
-            {% for error in form.password.errors%}
-                <br><p5>{{error}}</p5>
-            {% endfor %}
-        {% endif %}
-        <br>
-        {{form.confirmPass.label(class='formText')}}
-        <br>
-        {{form.confirmPass(class='formInput')}}
-        {% if form.confirmPass.errors %}
-            {% for error in form.confirmPass.errors %}
-                <br><p5>{{error}}</p5>
-            {% endfor %}
-        {% endif %}
-        <br>
-        {{form.submit()}}
-    </form>
+        <a class="NavBarLink" href="{{url_for('authentication.register')}}">Register</a>
+   {%endif%}
 {% endblock body %}
     
