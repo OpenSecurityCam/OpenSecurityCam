@@ -14,7 +14,6 @@ def login():
 
 @authenticate.route('/register', methods=['GET', 'POST'])
 def register():
-    registerForm = RegisterForm()
     registrator = Registrator()
     return registrator.RegisterUser()
     
