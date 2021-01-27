@@ -1,5 +1,5 @@
 bcrypt==3.2.0
-Beaker==1.11.0=
+Beaker==1.11.0
 contextlib2==0.6.0.post1
 cryptography==3.3.1
 cssselect2==0.4.1
