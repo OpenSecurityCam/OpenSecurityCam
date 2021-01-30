@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+{% block head %}
+<title>Live Feed</title>
+<link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<h2>Live Video Feed</h2>
+<video-js id="video_id" class="vjs-default-skin" controls preload="auto" autoplay="true" width="640" height="360">
+  <source src="http://0.0.0.0/playlist.m3u8">
+</video-js>
+<script src="https://unpkg.com/video.js/dist/video.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.12.2/videojs-contrib-hls.min.js"></script>
+<script>
+  var player = videojs('video_id');
+</script>
+{% endblock %}
