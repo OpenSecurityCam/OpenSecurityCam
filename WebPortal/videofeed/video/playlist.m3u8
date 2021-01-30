@@ -1,0 +1,16 @@
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-ALLOW-CACHE:NO
+#EXT-X-MEDIA-SEQUENCE:47378
+#EXT-X-TARGETDURATION:1
+
+#EXTINF:1,
+http://0.0.0.0/segment47377.ts
+#EXTINF:1,
+http://0.0.0.0/segment47378.ts
+#EXTINF:1,
+http://0.0.0.0/segment47379.ts
+#EXTINF:1,
+http://0.0.0.0/segment47380.ts
+#EXTINF:1,
+http://0.0.0.0/segment47381.ts
