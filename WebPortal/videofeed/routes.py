@@ -1,22 +1,56 @@
+from WebPortal import SocketIOClient
 from flask import Blueprint, redirect, url_for, render_template, flash, send_from_directory
-
+from flask_socketio import send, emit
 from flask_login import current_user
 from werkzeug.wrappers import Response
+from onesignal_sdk.client import Client
+
+from WebPortal import SocketIOClient
 
 main = Blueprint('main', __name__)
 
-@main.after_request
-def add_header(response):
-    response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
-    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
-    response.headers['Pragma'] = 'no-cache'
-    response.headers['Expires'] = '0'
-    return response
+OneSignalClient = Client(app_id="68c16cd3-65dd-4d94-ae7a-550e64acb7e4", rest_api_key="ZDZkZWZjY2QtYTk5Ni00NjBlLWFiYjktZDcxMzRlYTA1NzBk")
+
+class StateClass:
+    SystemState = False
+
+state = StateClass()
+
+System_Armed_Notification = {
+    'contents': {'en': 'The system is currently ARMED'},
+    'included_segments': ['All'],
+}
+
+System_Unarmed_Notification = {
+    'contents': {'en': 'The system is currently UNARMED'},
+    'included_segments': ['All'],
+}
+
+@SocketIOClient.on('Toggle_Arm')
+def HandleSystemArm():
+    if state.SystemState:
+        state.SystemState = False
+        print(state.SystemState)
+        OneSignalClient.send_notification(System_Unarmed_Notification)
+        emit("UnarmSystem", "Unarm System", broadcast=True)
+    else:
+        state.SystemState = True
+        OneSignalClient.send_notification(System_Armed_Notification)
+        print(state.SystemState)
+        emit("ArmSystem", "Arm System", broadcast=True)
+
+@main.route('/OneSignalSDKUpdaterWorker.js')
+def OneSignalSDKUpdateWorker():
+    return main.send_static_file('js/OneSignal_Service_Worker/OneSignalSDKUpdaterWorker.js')
+
+@main.route('/OneSignalSDKWorker.js')
+def OneSignalSDKWorker():
+    return main.send_static_file('js/OneSignal_Service_Worker/OneSignalSDKWorker.js')
 
 @main.route('/')
 def home():
     if current_user.is_authenticated:
-        return render_template('index.html')
+        return render_template('index.html', SystemState = state.SystemState)
     else:
         return redirect(url_for('authentication.login'))  
 

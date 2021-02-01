@@ -7,12 +7,26 @@
 
 {% block body %}
 <h2>Live Video Feed</h2>
+
+  
 <video-js id="video_id" class="vjs-default-skin" controls preload="auto" autoplay="true" width="640" height="360">
-  <source src="http://0.0.0.0/playlist.m3u8">
+  <source src="http://192.168.0.132/playlist.m3u8">
 </video-js>
+
 <script src="https://unpkg.com/video.js/dist/video.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.12.2/videojs-contrib-hls.min.js"></script>
 <script>
   var player = videojs('video_id');
+  player.play();
 </script>
+
+{% if SystemState: %}
+  <button id="Arm_Toggle_Button">Unarm System</button>
+{% else %}
+  <button id="Arm_Toggle_Button">Arm System</button>
+{% endif %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/WebSockets_FrontEnd/WebSockets.js') }}"></script>
 {% endblock %}

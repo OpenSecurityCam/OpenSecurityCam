@@ -11,6 +11,7 @@ class users(db.Model, UserMixin):
     password = db.Column("passcode", db.String(100), unique=True, nullable = False)
     isAdmin = db.Column("isAdmin", db.Boolean, nullable = False, default = False)
 
-    def __init__(self, username, password):
+    def __init__(self, username, password, isAdmin):
         self.username = username
         self.password = password
+        self.isAdmin = isAdmin
