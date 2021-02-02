@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var socket = io.connect('http://192.168.0.132');
+    var socket = io.connect('http://localhost:80');
 
     socket.on('connect', function() {
         socket.send('Connected to Server');
@@ -9,11 +9,11 @@ $(document).ready(function() {
         socket.emit('Toggle_Arm');
     });
 
-    socket.on('ArmSystem', function(state) {
+    socket.on('ArmSystem', function() {
         document.getElementById('Arm_Toggle_Button').innerHTML = "Unarm System";
     });
 
-    socket.on('UnarmSystem', function(state) {
+    socket.on('UnarmSystem', function() {
         document.getElementById('Arm_Toggle_Button').innerHTML = "Arm System";
     });
 });

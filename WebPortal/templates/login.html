@@ -8,8 +8,8 @@
     
 
 {% block body %}
-    <form action="" method='POST'>
-        <h2>Login</h2>
+    <form action="" method='POST' class="LoginForm">
+        <h2>OpenSecurityCam - Login</h2>
         {{form.hidden_tag()}}
         {{form.username.label(class="formText")}}
         <br>
@@ -33,6 +33,6 @@
         {{form.stayLoggedIn.label(class="formText")}}
         <br>
         {{form.submit(class='a')}}
-        </form>
+    </form>
 {% endblock body %}
     

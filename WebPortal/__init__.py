@@ -5,12 +5,15 @@ from flask_login import LoginManager
 from flask_socketio import SocketIO
 from onesignal_sdk.client import Client
 
-from WebPortal.config import Config
+
+from WebPortal.ConfigFlask import Config
+from WebPortal.ConfigOneSignal import ConfigOneSignal
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 loginMan = LoginManager()
 SocketIOClient = SocketIO()
+OneSignalClient = Client(app_id=ConfigOneSignal.App_ID, rest_api_key=ConfigOneSignal.Rest_API_Key)
 def create_WebPortal(config_class = Config):
     app = Flask(__name__)
     app.config.from_object(Config)
@@ -20,13 +23,12 @@ def create_WebPortal(config_class = Config):
     loginMan.init_app(app)
     SocketIOClient.init_app(app)
 
-    from WebPortal.authentication.routes import authenticate
-    from WebPortal.usercontrol.routes import userctrl
-    from WebPortal.videofeed.routes import main
+    from WebPortal.Authentication.routes import Authentication
+    from WebPortal.Usercontrol.routes import UserControl
+    from WebPortal.MainPage.routes import MainPage
 
-    app.register_blueprint(authenticate)
-    app.register_blueprint(main)
-    app.register_blueprint(userctrl)
-    app.register_blueprint(main)
+    app.register_blueprint(MainPage)
+    app.register_blueprint(UserControl)
+    app.register_blueprint(Authentication)
 
     return app

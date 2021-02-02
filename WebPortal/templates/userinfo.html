@@ -10,9 +10,9 @@
    <h1>Hello, {{current_user.username}}</h1>
    <h2>Admin Account: {{current_user.isAdmin}}</h2>
    {%if current_user.isAdmin%}
-        <a class="NavBarLink" href="{{url_for('usercontrol.credentialChanger')}}">Credential Changer</a>
+        <a class="NavBarLink" href="{{url_for('UserControl.UsernameChanger')}}">Change username</a>
         <br>
-        <a class="NavBarLink" href="{{url_for('authentication.register')}}">Register</a>
+        <a class="NavBarLink" href="{{url_for('UserControl.RegisterUser')}}">Register</a>
    {%endif%}
 {% endblock body %}
     

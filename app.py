@@ -1,4 +1,4 @@
-from WebPortal import create_WebPortal
+from WebPortal import create_WebPortal, SocketIOClient
 
 app = create_WebPortal()
 

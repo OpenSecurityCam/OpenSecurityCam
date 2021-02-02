@@ -2,35 +2,42 @@
 <html>
     <head>
         <link rel="stylesheet" href="{{ url_for('static', filename="css/main.css" )}}">
-        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-        <script>
-            window.OneSignal = window.OneSignal || [];
-            OneSignal.push(function() {
-                OneSignal.init({
-                    appId: "68c16cd3-65dd-4d94-ae7a-550e64acb7e4",
+        
+        {% if current_user.is_authenticated: %}
+            <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+            <script>
+                window.OneSignal = window.OneSignal || [];
+                OneSignal.push(function() {
+                    OneSignal.init({
+                        appId: "68c16cd3-65dd-4d94-ae7a-550e64acb7e4",
+                    });
                 });
-            });
-            OneSignal.push(function () {    OneSignal.showHttpPrompt();});
-        </script>
+                OneSignal.push(function () {    OneSignal.showHttpPrompt();});
+            </script>
+        {% endif %}
+            
         {% block head%} {% endblock %}
     </head>
     <body>
         <div class="TopBar">
+        
+        {% if current_user.is_authenticated: %}
             <div class="NavBar">
-                <h1>LibreSecurityCam WebPortal</h1>
+                <h1>OpenSecurityCam WebPortal</h1>
                 <div class="NavBar">
-
                     {% if current_user.is_authenticated: %}
                         <a class="NavBarLink" href="/">Main Page</a>
-                        <a class="NavBarLink" href="{{url_for('usercontrol.userinfo')}}">{{current_user.username}}</a>
-                        <a class="NavBarLink" href="{{url_for('authentication.logout')}}">Log Out</a>
+                        <a class="NavBarLink" href="{{url_for('UserControl.Userinfo')}}">{{current_user.username}}</a>
+                        <a class="NavBarLink" href="{{url_for('Authentication.Logout')}}">Log Out</a>
                     {% else: %}  
                         <a class="NavBarLink" href="/login">Login</a>
                     {% endif %}
                     <br>
                 </div>
-                
             </div>
+        {% endif %}
+                
+        </div>
         </div>
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages: %}
