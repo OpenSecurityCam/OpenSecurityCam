@@ -9,11 +9,9 @@ from WebPortal.MainPage.Entities.Trigger_Armed_Unarmed.Trigger_Armed_Unarmed imp
 
 MainPage = Blueprint('MainPage', __name__)
 
-trigger = ArmTriggerClass(state)
-
 @SocketIOClient.on('Toggle_Arm')
 def HandleTrigger():
-    trigger.HandleSystemArm()
+    ArmTriggerClass.HandleSystemArm()
 
 @MainPage.route('/OneSignalSDKUpdaterWorker.js')
 def OneSignalSDKUpdateWorker():
@@ -30,7 +28,15 @@ def Home():
     else:
         return redirect(url_for('Authentication.Login'))  
 
+@MainPage.after_request
+def add_header(response):
+    response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
+
 @MainPage.route('/<string:file_name>')
 def Stream(file_name):
-    video_dir = './videofeed/video'
+    video_dir = './MainPage/video'
     return send_from_directory(directory=video_dir, filename=file_name)

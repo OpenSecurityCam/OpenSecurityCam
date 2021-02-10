@@ -7,9 +7,22 @@ body
     background-attachment: fixed;
     font-family: 'Montserrat', sans-serif;
 }
+
+/* video player */
+#vid1
+{
+    margin: auto;
+}
+
+#Arm_Toggle_Button
+{
+    text-align: center;
+}
+
 /* header */
 .TopBar
 {
+    top:0;
     width: 100%;
     background-color: #23243C;
     font-family: 'Montserrat', sans-serif;

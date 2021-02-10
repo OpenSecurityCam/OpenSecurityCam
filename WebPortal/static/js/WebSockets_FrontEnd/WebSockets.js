@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var socket = io.connect('http://localhost:80');
+    var socket = io.connect('http://192.168.1.176:80');
 
     socket.on('connect', function() {
         socket.send('Connected to Server');
