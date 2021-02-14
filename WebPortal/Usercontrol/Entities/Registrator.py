@@ -1,13 +1,17 @@
+# Imports from Flask
 from flask.helpers import flash, url_for
 from flask.templating import render_template
 from flask_login import login_user, current_user
 from werkzeug.utils import redirect
 
+# Imports from project
 from WebPortal import db, bcrypt
 from WebPortal.models import users
 from WebPortal.Usercontrol.Forms.RegisterForm import RegisterForm
 
-class Registrator:
+# Class that registers a user
+class RegistratorClass:
+    
     def RegisterUser(self):
         registerForm = RegisterForm()
         if current_user.isAdmin:

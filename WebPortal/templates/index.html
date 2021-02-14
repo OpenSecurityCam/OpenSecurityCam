@@ -9,11 +9,11 @@
 <h2>Live Video Feed</h2>
 
 <video id=vid1 width=800 height=600 class="video-js vjs-default-skin vjs-big-play-centered" controls muted preload>
-  <source src="http://192.168.1.176/playlist.m3u8">
+  <source src="http://192.168.1.110:80/playlist.m3u8" type="application/x-mpegURL">
 </video>
 
 <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
-<script src="https://unpkg.com/browse/@videojs/http-streaming@2.5.0/dist/videojs-http-streaming.min.js"></script>
+<script src="{{ url_for('static', filename='js/videojs/videojs-http-streaming.js') }}"></script>
 <script src="//vjs.zencdn.net/7.10.2/video.js"></script>
 
 <script>

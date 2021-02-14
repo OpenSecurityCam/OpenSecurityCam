@@ -1,20 +1,20 @@
 from flask import Blueprint, render_template
 
-from WebPortal.Usercontrol.Entities.Userctl import UserControl as uc
-from WebPortal.Usercontrol.Entities.Registrator import Registrator
+from WebPortal.Usercontrol.Entities.UsernameChanger import UsernameChangerClass
+from WebPortal.Usercontrol.Entities.Registrator import RegistratorClass
 
 UserControl = Blueprint('UserControl', __name__)
 
 @UserControl.route('/userinfo')
 def Userinfo():
-    return render_template('userinfo.html')
+    return render_template('UserInfo.html')
 
 @UserControl.route('/userinfo/usernameChanger', methods=['GET', 'POST'])
 def UsernameChanger():
-    userctl = uc()
-    return userctl.usercontrol()
+    usernamechanger = UsernameChangerClass()
+    return usernamechanger.Main()
 
 @UserControl.route('/userinfo/register', methods=['GET', 'POST'])
 def RegisterUser():
-    registrator = Registrator()
+    registrator = RegistratorClass()
     return registrator.RegisterUser()

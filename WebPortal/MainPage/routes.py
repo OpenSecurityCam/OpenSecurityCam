@@ -34,6 +34,7 @@ def add_header(response):
     response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
     response.headers['Pragma'] = 'no-cache'
     response.headers['Expires'] = '0'
+    response.headers['Access-Control-Allow-Origin'] = 'http://192.168.1.110/playlist.m3u8'
     return response
 
 @MainPage.route('/<string:file_name>')
