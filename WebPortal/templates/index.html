@@ -23,12 +23,11 @@ player.play();
 </script>
 
 {% if SystemState: %}
-  <button id="Arm_Toggle_Button">Unarm System</button>
+  <button id="Arm_Toggle_Button" onclick="ArmToggleButton()">Unarm System</button>
 {% else %}
-  <button id="Arm_Toggle_Button">Arm System</button>
+  <button id="Arm_Toggle_Button" onclick="ArmToggleButton()">Arm System</button>
 {% endif %}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="{{ url_for('static', filename='js/WebSockets_FrontEnd/WebSockets.js') }}"></script>
 {% endblock %}

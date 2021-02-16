@@ -8,13 +8,12 @@ class Validator():
     def FindUserAndLogin(self):
         loginForm = LoginForm()
         if current_user.is_authenticated:
-            self.__UserIsLoggedIn()
-        if loginForm.validate_on_submit():
+            flash("Already Logged in", 'Failed')
+            return redirect(url_for('UserControl.Userinfo'))
+        elif loginForm.validate_on_submit():
             return self.__FindUser(loginForm)
-        return render_template('login.html', form = loginForm)
-
-    def __UserIsLoggedIn(self):
-        flash("Already Logged in", 'Failed')
+        else:
+            return render_template('login.html', form = loginForm)
 
     def __FindUser(self, loginForm):
         try:
