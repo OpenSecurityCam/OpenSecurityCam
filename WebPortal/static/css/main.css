@@ -9,98 +9,6 @@ body
     font-family: 'Montserrat', sans-serif;
 }
 
-/* видео плеър */
-#vid1
-{
-    margin: auto;
-}
-
-#Arm_Toggle_Button
-{
-    width: 150px;
-    background: white;
-    border-radius: 50px;
-    color: #5681A0;
-    padding: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    margin: 10px 0;
-    text-align: center;
-}
-
-/* header */
-.TopBar
-{
-    top:0;
-    width: 100%;
-    background-color: #23243C;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-}
-
-h2 
-{
-    text-align: center;
-  color: white;
-  float: center;
-  font-size: 22px;
-  margin-bottom: 0px;
-  padding: 12px 0;
-}
-
-
-h1, h3, h4
-{
-    color: white;
-    text-align: center;
-}
-
-p1
-{
-    color: white;
-}
-p5
-{
-    color: white;
-    font-size: 12px;
-}
-
-/* бутони в header */ 
-.NavBarLink
-{
-    color: white;
-    text-decoration: none;
-    padding: 12px 12px 12px 12px; 
-    font-size: 20px;
-    width: 100%;
-}
-
-/* цвят на шрифта на формата*/
-.formText
-{
-    color: white;
-    padding-top: 10px;
-    margin: middle middle;
-}
-
-/* цвят на input текста в полето + input големина*/
-.formInput
-{
-    margin: auto;
-    width: 40%;
-    color: #B8BCC5
-    
-}
-/* форма за вход */
-.LoginForm
-{
-    top: 0;
-    left:0;
-    right:0;
-    bottom:0;
-    height: 20%;
-    position: center;
-}
 
 /* успех */
 .flashSuccess
@@ -124,36 +32,139 @@ p5
 {
     background-color: #996600;
     color: white;
-    
 }
 
-form
+
+
+
+/* header */
+.TopBar
 {
-    width: 50%;
+    top:0;
+    width: 100%;
+    background-color: #23243C;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+/* бутони в header */ 
+.NavBarLink
+{
+    color: white;
+    text-decoration: none;
+    padding: 12px 12px 12px 12px; 
+    font-size: 20px;
+    width: 100%;
+}
+
+
+
+
+h1, h3, h4
+{
+    color: white;
+    text-align: center;
+}
+
+h2 
+{
+    text-align: center;
+    color: white;
+    float: center;
+    font-size: 48px;
+    margin-bottom: 0px;
+    padding: 12px 0;
+}
+
+p1
+{
+    color: white;
+}
+
+p5
+{
+    color: white;
+    font-size: 12px;
+}
+
+
+/* ДИЗАЙНИ */
+
+/* форма */ 
+#form_design
+{
     margin: auto;
-    padding: 10px 10px 10px 10px;
+    display: block;
+    width: 20%;
 }
 
-/* бутон */
-.a
+/* цвят на шрифта на формата*/
+label
 {
-  width: 100px;
-  background: white;
-  border-radius: 50px;
-  color: #5681A0;
-  padding: 5px;
-  font-size: 18px;
-  cursor: pointer;
-  margin: 10px 0;
+    color: white;
+    padding-top: 10px;
+    text-align: center;
 }
+
+/* цвят на input текста в полето + input големина*/
+.formInput
+{
+    text-align: left;
+    width: 100%;
+    color: #B8BCC5;
+    border-radius: 18px;
+    padding: 10px 10px 10px 10px;
+    margin:
+    /* между input и label */
+    3px 
+
+    /* дясно */
+    0px 
+
+    /* междуредие */
+    15px
+
+    /* ляво*/
+    -10px;
+}
+
+
+/* бутон + шрифт */
 .SubmitBtn
 {
-    width: 180px;
+    width: 200px;
+    height: 50px;
+    color: #5681A0;
     background: white;
     border-radius: 50px;
-    color: #5681A0;
     padding: 5px;
-    font-size: 18px;
+    margin: 15px 0px;
     cursor: pointer;
-    margin: 10px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* бутон на video */
+#Arm_Toggle_Button
+{
+    width: 150px;
+    color: #5681A0;
+    background: white;
+    border-radius: 50px;
+    padding: 5px;
+    margin: 15px;
+    margin: center;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+
+/* видео плеър */
+#vid1
+{
+    margin: auto;
 }
