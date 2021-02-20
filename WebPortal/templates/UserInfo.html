@@ -9,12 +9,7 @@
 {% block body %}
    <h1>Hello, {{current_user.username}}</h1>
    <h2>Admin Account: {{current_user.isAdmin}}</h2>
-<<<<<<< HEAD
         <a class="NavBarLink" href="{{url_for('UserControl.UsernameChange', user=current_user.username)}}">Change username</a>
-=======
-   {%if current_user.isAdmin%}
-        <a class="NavBarLink" href="{{url_for('UserControl.UsernameChanger')}}">Change Username</a>
->>>>>>> refs/remotes/origin/main
         <br>
         <a class="NavBarLink" href="{{url_for('UserControl.PasswordChange', user=current_user.username)}}">Change password</a>
         <br>
