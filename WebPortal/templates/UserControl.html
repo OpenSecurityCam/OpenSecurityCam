@@ -7,15 +7,34 @@
     
 
 {% block body %}
-<a class="NavBarLink" href="{{url_for('UserControl.RegisterUser', user=current_user.username)}}">Register</a>
-<br>
+<div class="UserControlBox">
+    
+<table class="center">
+    <br><br><br><br><br>
+     <tr>
+        <th>Account</th>
+        <th>Admin Status</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Permision</th>
+        <th>Delete User</th>
+        <th>Register</th>
+    </tr>
    {% for item in Users %}
-        <p1>{{item.username}} - Admin Rights:{{item.isAdmin}}</p1>
-        <a class="UserControlLink" href="{{url_for('UserControl.UsernameChange', user=item.username)}}">Change Username</a>
-        <a class="UserControlLink" href="{{url_for('UserControl.PasswordChange', user=item.username)}}">Change Password</a>
-        <a class="UserControlLink" href="">Give admin rights</a>
-        <a class="UserControlLink" href="">Delete User Account</a>
-        <br>
-   {% endfor %}
+   
+    <tr>
+        <td><p1>{{item.username}}</p1></td>
+        <td><p1>Admin Rights:{{item.isAdmin}}</p1></td>
+        <td><a class="UserControlLink" href="{{url_for('UserControl.UsernameChange', user=item.username)}}">Change Username</a></td>
+        <td><a class="UserControlLink" href="{{url_for('UserControl.PasswordChange', user=item.username)}}">Change Password</a></td>
+        <td><a class="UserControlLink" href="">Give admin rights</a></td>
+        <td><a class="UserControlLink" href="">Delete User Account</a></td>
+        <td><a class="UserControlLink"href="{{url_for('UserControl.RegisterUser', user=current_user.username)}}">Register</a> </td>
+    
+     {% endfor %}
+    </tr>
+</table>
+
+</div>
 {% endblock body %}
     
