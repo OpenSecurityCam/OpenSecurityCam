@@ -14,7 +14,7 @@ class UsernameChangerClass:
     # Checks if the user is logged
     #   if yes -> it goes to the __UpdateUserNameInfo method
     #   if no -> it flashes a message and redirects it to the login page
-    def Main(self):
+    def Main(self, usernameToCheck):
         if current_user.is_authenticated: 
             return self.__FormCheckMethod()
         else:
