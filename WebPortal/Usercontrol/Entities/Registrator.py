@@ -32,4 +32,4 @@ class RegistratorClass:
             db.session.add(userToAdd)
             db.session.commit()
             flash("User created successfully", "Success")
-            return redirect(url_for('usercontrol.userinfo'))
+            return redirect(url_for('UserControl.Userinfo'))

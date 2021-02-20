@@ -18,11 +18,11 @@ class Validator():
     def __FindUser(self, loginForm):
         try:
             FoundUser = users.query.filter_by(username = loginForm.username.data).first()
-            CheckHash = bcrypt.check_password_hash(FoundUser.password, loginForm.password.data)
-            login_user(FoundUser, remember=loginForm.submit.data)
-            flash("Logged in", 'Success')
-            return redirect(url_for('UserControl.Userinfo'))
+            if FoundUser:
+                login_user(FoundUser, remember=loginForm.submit.data)
+                flash("Logged in", 'Success')
+                return redirect(url_for('UserControl.Userinfo'))
         except:
-            flash("Login Unsuccessful", 'Failed')
+            flash("Unexpected Error", 'Failed')
             return redirect(url_for('Authentication.Login'))
             

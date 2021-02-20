@@ -9,10 +9,12 @@
 {% block body %}
    <h1>Hello, {{current_user.username}}</h1>
    <h2>Admin Account: {{current_user.isAdmin}}</h2>
-   {%if current_user.isAdmin%}
-        <a class="NavBarLink" href="{{url_for('UserControl.UsernameChanger')}}">Change username</a>
+        <a class="NavBarLink" href="{{url_for('UserControl.UsernameChange', user=current_user.username)}}">Change username</a>
         <br>
-        <a class="NavBarLink" href="{{url_for('UserControl.RegisterUser')}}">Register</a>
-   {%endif%}
+        <a class="NavBarLink" href="{{url_for('UserControl.PasswordChange', user=current_user.username)}}">Change password</a>
+        <br>
+        {%if current_user.isAdmin%}
+            <a class="NavBarLink" href="{{url_for('UserControl.UsersControl', user=current_user.username)}}">User Control</a>
+        {%endif%}
 {% endblock body %}
     
