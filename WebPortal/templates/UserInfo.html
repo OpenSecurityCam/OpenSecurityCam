@@ -8,8 +8,12 @@
 
 {% block body %}
 <div id="userinfo">
-   <h1>Hello, {{current_user.username}}</h1>
-   <h2>Admin Account: {{current_user.isAdmin}}</h2>
+    <div class="UserGreeter">
+        <img src='/static/css/Default-pic.png' class="ProfilePicture"/>
+        <h1>Hello, {{current_user.username}}</h1>
+        <h2 class="AdminStatus">Admin Account: {{current_user.isAdmin}}</h2>
+    </div>
+    <div class="ControlOptions">
         <a class="NavBarLink" href="{{url_for('UserControl.UsernameChange', user=current_user.username)}}">Change username</a>
         <br>
         <a class="NavBarLink" href="{{url_for('UserControl.PasswordChange', user=current_user.username)}}">Change password</a>
@@ -17,6 +21,7 @@
         {%if current_user.isAdmin%}
             <a class="NavBarLink" href="{{url_for('UserControl.UsersControl', user=current_user.username)}}">User Control</a>
         {%endif%}
+    </div>
 </div>
 {% endblock body %}
     
