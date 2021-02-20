@@ -148,6 +148,8 @@ label
     color: white;
     padding-top: 10px;
     text-align: center;
+    
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* цвят на input текста в полето */
@@ -160,6 +162,8 @@ label
     color: #B8BCC5;
     border-radius: 18px;
     padding: 10px 10px 10px 10px;   
+    
+    font-family: 'Montserrat', sans-serif;
     
 }
 
