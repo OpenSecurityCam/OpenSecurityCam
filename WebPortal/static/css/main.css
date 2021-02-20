@@ -53,7 +53,7 @@ body
     color: white;
     text-decoration: none;
     padding: 12px 12px 12px 12px; 
-    font-size: 20px;
+    font-size: 22px;
     width: 100%;
 }
 
@@ -95,10 +95,11 @@ p5
 {
     margin: auto;
     display: block;
-    width: 20%;
+    /* големина на input label */
+    width: 300px;
 }
 
-/* цвят на шрифта на формата*/
+/* цвят на шрифта на формата input големина */
 label
 {
     color: white;
@@ -106,7 +107,7 @@ label
     text-align: center;
 }
 
-/* цвят на input текста в полето + input големина*/
+/* цвят на input текста в полето */
 .formInput
 {
     text-align: left;
