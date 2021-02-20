@@ -29,8 +29,8 @@
             {% endfor %}
         {% endif %}
         <br>
-        {{form.stayLoggedIn()}}
-        {{form.stayLoggedIn.label(class="formText")}}
+        {{form.stayLoggedIn(class="checkBox")}}
+        {{form.stayLoggedIn.label()}}
         <br>
         {{form.submit(class='SubmitBtn')}}
     </form>

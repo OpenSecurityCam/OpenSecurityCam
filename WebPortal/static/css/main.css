@@ -34,17 +34,18 @@ body
     color: white;
 }
 
-
-
-
 /* header */
 .TopBar
 {
-    top:0;
+    overflow: hidden;
     width: 100%;
     background-color: #23243C;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+    box-shadow: 0px 0px 35px -1px rgba(81,82,107,0.66);
+-webkit-box-shadow: 0px 0px 35px -1px rgba(81,82,107,0.66);
+-moz-box-shadow: 0px 0px 35px -1px rgba(81,82,107,0.66);
+
 }
 
 /* бутони в header */ 
@@ -64,6 +65,7 @@ h1, h3, h4
 {
     color: white;
     text-align: center;
+    font-size: 48px;
 }
 
 h2 
@@ -93,10 +95,51 @@ p5
 /* форма */ 
 #form_design
 {
+    background-image: url(Form_Background.png);
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: local;
     margin: auto;
     display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     /* големина на input label */
-    width: 300px;
+    width: 650px;
+    height: 370px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    -webkit-box-shadow: 0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+-moz-box-shadow:    0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+}
+
+#userinfo{
+    background-image: url(Form_Background.png);
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: local;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* големина на input label */
+    width: 650px;
+    height: 370px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    -webkit-box-shadow: 0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+-moz-box-shadow:    0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
 }
 
 /* цвят на шрифта на формата input големина */
@@ -110,11 +153,19 @@ label
 /* цвят на input текста в полето */
 .formInput
 {
+    margin: auto;
+    display: block;
+    width: 70%;
     text-align: left;
-    width: 100%;
     color: #B8BCC5;
     border-radius: 18px;
-    padding: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;   
+    
+}
+
+.formText
+{
+    
     margin:
     /* между input и label */
     3px 
@@ -126,10 +177,27 @@ label
     15px
 
     /* ляво*/
-    -10px;
+    100px;
 }
 
+.checkBox{
+    margin:auto;
+    margin:
+    /* между input и label */
+    3px 
 
+    /* дясно */
+    0px 
+
+    /* междуредие */
+    15px
+
+    /* ляво*/
+    100px;
+}
+.RememberMe{
+
+}
 /* бутон + шрифт */
 .SubmitBtn
 {
@@ -139,11 +207,12 @@ label
     background: white;
     border-radius: 50px;
     padding: 5px;
-    margin: 15px 0px;
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     font-weight: 500;
+    display: block;
+    margin: auto;
 }
 
 /* бутон на video */

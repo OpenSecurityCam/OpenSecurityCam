@@ -7,6 +7,7 @@
     
 
 {% block body %}
+<div id="userinfo">
    <h1>Hello, {{current_user.username}}</h1>
    <h2>Admin Account: {{current_user.isAdmin}}</h2>
         <a class="NavBarLink" href="{{url_for('UserControl.UsernameChange', user=current_user.username)}}">Change username</a>
@@ -16,5 +17,6 @@
         {%if current_user.isAdmin%}
             <a class="NavBarLink" href="{{url_for('UserControl.UsersControl', user=current_user.username)}}">User Control</a>
         {%endif%}
+</div>
 {% endblock body %}
     
