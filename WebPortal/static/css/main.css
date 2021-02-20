@@ -9,7 +9,12 @@ body
     font-family: 'Montserrat';
 }
 
-
+.Content
+{
+    display: grid;
+    place-items: center;
+    height: 82vh;
+}
 /* успех */
 .flashSuccess
 {
@@ -43,9 +48,9 @@ body
     font-family: 'Montserrat';
     text-align: center;
     box-shadow: 0px 0px 35px -1px rgba(81,82,107,0.66);
--webkit-box-shadow: 0px 0px 35px -1px rgba(81,82,107,0.66);
--moz-box-shadow: 0px 0px 35px -1px rgba(81,82,107,0.66);
-
+    -webkit-box-shadow: 0px 0px 35px -1px rgba(81,82,107,0.66);
+    -moz-box-shadow: 0px 0px 35px -1px rgba(81,82,107,0.66);
+    height: 16vh;
 }
 
 /* бутони в header */ 
@@ -57,9 +62,6 @@ body
     font-size: 22px;
     width: 100%;
 }
-
-
-
 
 h1, h3, h4
 {
@@ -73,7 +75,7 @@ h2
     text-align: center;
     color: white;
     float: center;
-    font-size: 48px;
+    font-size: 20px;
     margin-bottom: 0px;
     padding: 12px 0;
 }
@@ -100,7 +102,6 @@ p5
     margin-right: 50px;
     display: block;
     margin: auto;
-    margin-top: 20px;
 }
 
 
@@ -126,8 +127,8 @@ p5
     -moz-border-radius: 25px;
     border-radius: 25px;
     -webkit-box-shadow: 0px 0px 25px 0px rgba(50, 50, 50, 0.72);
--moz-box-shadow:    0px 0px 25px 0px rgba(50, 50, 50, 0.72);
-box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+    -moz-box-shadow:    0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+    box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
 }
 
 #userinfo{
@@ -136,24 +137,29 @@ box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
     background-size: cover;
     background-position: center center;
     background-attachment: local;
-    margin: auto;
-    display: flex;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
     /* големина на input label */
-    width: 750px;
-    height: 440px;
+    width: 900px;
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     border-radius: 25px;
     -webkit-box-shadow: 0px 0px 25px 0px rgba(50, 50, 50, 0.72);
--moz-box-shadow:    0px 0px 25px 0px rgba(50, 50, 50, 0.72);
-box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+    -moz-box-shadow:    0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+    box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+    /* margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top:0;
+    */
 }
-
+.ControlUserMenuLink
+{
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    width: 100%;
+}
 /* цвят на шрифта на формата input големина */
 label
 {

@@ -14,12 +14,12 @@
         <h2 class="AdminStatus">Admin Account: {{current_user.isAdmin}}</h2>
     </div>
     <div class="ControlOptions">
-        <a class="NavBarLink" href="{{url_for('UserControl.UsernameChange', user=current_user.username)}}">Change username</a>
+        <a class="ControlUserMenuLink" href="{{url_for('UserControl.UsernameChange', user=current_user.username)}}">Change username</a>
         <br>
-        <a class="NavBarLink" href="{{url_for('UserControl.PasswordChange', user=current_user.username)}}">Change password</a>
+        <a class="ControlUserMenuLink" href="{{url_for('UserControl.PasswordChange', user=current_user.username)}}">Change password</a>
         <br>
         {%if current_user.isAdmin%}
-            <a class="NavBarLink" href="{{url_for('UserControl.UsersControl', user=current_user.username)}}">User Control</a>
+            <a class="ControlUserMenuLink" href="{{url_for('UserControl.UsersControl', user=current_user.username)}}">User Control</a>
         {%endif%}
     </div>
 </div>
