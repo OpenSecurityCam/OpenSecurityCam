@@ -95,11 +95,11 @@ p5
 {
     margin: auto;
     display: block;
+    /* големина на input label */
     width: 300px;
-    
 }
 
-/* цвят на шрифта на формата*/
+/* цвят на шрифта на формата input големина */
 label
 {
     color: white;
@@ -107,7 +107,7 @@ label
     text-align: center;
 }
 
-/* цвят на input текста в полето + input големина*/
+/* цвят на input текста в полето */
 .formInput
 {
     text-align: left;
