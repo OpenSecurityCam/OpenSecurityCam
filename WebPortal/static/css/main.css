@@ -1,3 +1,11 @@
+/* Шрифтове */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat.ttf'),
+         url('fonts/Montserrat.eot');
+         font-weight: 500;
+}
+
 /* фон */
 body
 {
@@ -8,6 +16,9 @@ body
     background-attachment: fixed;
     font-family: 'Montserrat';
 }
+
+
+/* Top line indicator */
 
 /* успех */
 .flashSuccess
@@ -32,6 +43,9 @@ body
     background-color: #996600;
     color: white;
 }
+
+
+/* ДИЗАЙНИ */
 
 /* header */
 .TopBar
@@ -84,20 +98,6 @@ p5
     font-size: 12px;
 }
 
-
-/* ДИЗАЙНИ */
-
-.ProfilePicture
-{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-right: 50px;
-    display: block;
-    margin: auto;
-}
-
-
 /* форма */ 
 #form_design
 {
@@ -113,8 +113,7 @@ p5
     bottom: 0;
     left: 0;
     right: 0;
-    /* големина на input label */
-    width: 80%;
+    width: 700px;
     height: 400px;
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
@@ -124,39 +123,43 @@ p5
     box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
 }
 
+/* Профилна снимка */
+.ProfilePicture
+{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 50px;
+    display: block;
+    margin: auto;
+}
+
+/* фон на полетата */
 #userinfo{
     background-image: url(Form_Background.png);
     background-repeat: no-repeat, repeat;
     background-size: cover;
     background-position: center center;
     background-attachment: local;
-    /* големина на input label */
-    width: 900px;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    border-radius: 25px;
-    -webkit-box-shadow: 0px 0px 25px 0px rgba(50, 50, 50, 0.72);
-    -moz-box-shadow:    0px 0px 25px 0px rgba(50, 50, 50, 0.72);
-    box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
     margin: auto;
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
     top:0;
+    width: 900px;
     height: 400px;
+
+    /* Сянка */
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    -webkit-box-shadow: 0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+    -moz-box-shadow:    0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+    box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
 }
-.ControlOptions
-{
-    text-align: center;
-}
-.ControlUserMenuLink
-{
-    color: white;
-    text-decoration: none;
-    font-size: 25px;
-    width: 100%;
-}
+
+
 /* цвят на шрифта на формата input големина */
 label
 {
@@ -164,6 +167,24 @@ label
     padding-top: 10px;
     text-align: center;
     font-family: 'Montserrat';
+}
+
+
+/* Заглавия на input формите */
+.formText
+{
+    margin:
+    /* между input и label */
+    3px 
+
+    /* дясно */
+    0px 
+
+    /* междуредие */
+    15px
+
+    /* ляво*/
+    100px;
 }
 
 /* цвят на input текста в полето */
@@ -181,23 +202,6 @@ label
     
 }
 
-.formText
-{
-    
-    margin:
-    /* между input и label */
-    3px 
-
-    /* дясно */
-    0px 
-
-    /* междуредие */
-    15px
-
-    /* ляво*/
-    100px;
-}
-
 .checkBox{
     margin:auto;
     margin:
@@ -213,6 +217,19 @@ label
     /* ляво*/
     100px;
 }
+
+
+/* Бутони */
+
+/* Регистрационен бутон */
+.RegisterBtn
+{
+    text-decoration: none;
+    color: white;
+    display: block;
+    text-align: center;
+}
+
 /* бутон + шрифт */
 .SubmitBtn
 {
@@ -246,31 +263,44 @@ label
 }
 
 
+/* Потребителски настройки */
 
-/* видео плеър */
-#vid1
+/* Потребителско поле */
+.UserGreeter
 {
-    margin: auto;
+    /* */
 }
 
-@font-face {
-    font-family: 'Montserrat';
-    src: url('fonts/Montserrat.ttf'),
-         url('fonts/Montserrat.eot');
-         font-weight: 500;
+/* Линкове към настройки */
+.ControlUserMenuLink
+{
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    width: 100%;
+}
+.ControlOptions
+{
+    text-align: center;
 }
 
+
+/* User Control */
+
+/* Таблица подравняване */
 table.center
 {
     margin-left: auto;
     margin-right: auto;
 }
 
+/* Таблица големина */
 .table
 {
       width: 100%;
 }
- 
+
+/* Таблица клетки */
 td, th 
 {
     font-size: 22px;
@@ -291,6 +321,7 @@ td, th
     text-align: left;
 }
 
+/* Информация в клетките */
 .UserControlLink
 {
     color: #b8bcc5;
@@ -299,17 +330,7 @@ td, th
     position: block;
 }
 
-.UserControlLink2
-{
-    display: block;
-    position: absolute;
-    color: white;
-    text-decoration: none;
-    font-size: 22px;
-    left: 0;
-    right: 0;
-}
-
+/* Фон на User Control */
 .UserControlBox
 {
     background-image: url(Form_Background.png);
@@ -319,15 +340,16 @@ td, th
     background-attachment: local;
     margin: auto;
     display: block;
-    /* големина на input label */
-    width: 90%;
-    height: 400px;
     margin: auto;
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
     top:0;
+    width: 90%;
+    height: 400px;
+
+    /* Сянка */
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     border-radius: 25px;
@@ -336,10 +358,9 @@ td, th
     box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
 }
 
-.RegisterBtn
+
+/* видео плеър */
+#vid1
 {
-    text-decoration: none;
-    color: white;
-    display: block;
-    text-align: center;
+    margin: auto;
 }
