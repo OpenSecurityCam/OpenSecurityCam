@@ -130,6 +130,7 @@ p5
     background-size: cover;
     background-position: center center;
     background-attachment: local;
+    padding: 50px 50px 50px 50px;
     /* големина на input label */
     width: 900px;
     -webkit-border-radius: 25px;
