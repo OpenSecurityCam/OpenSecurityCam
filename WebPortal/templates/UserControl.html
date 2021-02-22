@@ -16,7 +16,7 @@
     <br><br><br><br><br>
      <tr>
         <th>Account</th>
-        <th>Admin Status</th>
+        <th>Admin status</th>
         <th>Username</th>
         <th>Password</th>
         <th>Permision</th>
@@ -26,11 +26,11 @@
    
     <tr>
         <td><p1>{{item.username}}</p1></td>
-        <td><p1>Admin Rights:{{item.isAdmin}}</p1></td>
+        <td><p1>{{item.isAdmin}}</p1></td>
         <td><a class="UserControlLink" href="{{url_for('UserControl.UsernameChange', user=item.username)}}">Change Username</a></td>
         <td><a class="UserControlLink" href="{{url_for('UserControl.PasswordChange', user=item.username)}}">Change Password</a></td>
-        <td><a class="UserControlLink" href="">Give admin rights</a></td>
-        <td><a class="UserControlLink" href="">Delete User Account</a></td>
+        <td><a class="UserControlLink" href="">{% if item.isAdmin %} Remove rights {% else %} Give Rights {% endif %}</a></td>
+        <td><a class="UserControlLink" href="">Delete</a></td>
     
      {% endfor %}
     </tr>

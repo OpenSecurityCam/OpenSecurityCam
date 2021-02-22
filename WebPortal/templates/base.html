@@ -21,14 +21,12 @@
     <body>
         {% if current_user.is_authenticated: %}
         <div class="TopBar">
-                <h1>OpenSecurityCam WebPortal</h1>
-                    {% if current_user.is_authenticated: %}
-                        <a class="NavBarLink" href="/">Main Page</a>
-                        <a class="NavBarLink" href="{{url_for('UserControl.Userinfo')}}">{{current_user.username}}</a>
-                        <a class="NavBarLink" href="{{url_for('Authentication.Logout')}}">Log Out</a>
-                    {% else: %}  
-                        <a class="NavBarLink" href="/login">Login</a>
-                    {% endif %}
+            <div class="TopBarTitle">OpenSecurityCam WebPortal</div>
+            <div class = "NavigationBar">
+                <a class="NavBarLink" href="/">Main Page</a>
+                <a class="NavBarLink" href="{{url_for('UserControl.Userinfo')}}">{{current_user.username}}</a>
+                <a class="NavBarLink" href="{{url_for('Authentication.Logout')}}">Log Out</a>
+            </div>
         </div>
         {% endif %}
         {% with messages = get_flashed_messages(with_categories=true) %}
