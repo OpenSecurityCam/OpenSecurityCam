@@ -5,15 +5,7 @@
          url('fonts/Montserrat.eot');
          font-weight: 500;
 }
-.Content 
-{
-    display: block;
-    margin: auto;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 80%;
-}
+
 /* фон */
 body
 {
@@ -23,7 +15,6 @@ body
     background-position: center center;
     background-attachment: fixed;
     font-family: 'Montserrat';
-    height: 100vh;
 }
 
 
@@ -59,6 +50,7 @@ body
 /* header */
 .TopBar
 {
+    overflow: hidden;
     width: 100%;
     background-color: #23243C;
     font-family: 'Montserrat';
@@ -66,40 +58,25 @@ body
     box-shadow: 0px 0px 35px -1px rgba(81,82,107,0.66);
     -webkit-box-shadow: 0px 0px 35px -1px rgba(81,82,107,0.66);
     -moz-box-shadow: 0px 0px 35px -1px rgba(81,82,107,0.66);
-    position: fixed;
-    top:0;
-    left:0;
-    right:0;
-    max-height: 10%;
 }
 
-/* Заглавие на TopBar-a */
+/* header */ 
 .TopBarTitle
 {
     color: white;
-    font-size: 62px;
-    left: 0;
-    right: 0;
-    top:0;
-    max-height: 70%;
+    text-decoration: none;
+    padding: 12px 12px 12px 12px; 
+    font-size: 48px;
+    font-weight: 700;
+    width: 100%;
 }
-
-.NavigationBar
-{
-    left: 0;
-    right: 0;
-    bottom: 0;
-    max-height: 30%;
-}
-
-/* бутони в header */ 
 .NavBarLink
 {
     color: white;
     text-decoration: none;
-    font-size: 20px;
-    padding-left: 7px;
-    padding-right: 7px;
+    padding: 12px 12px 12px 12px; 
+    font-size: 22px;
+    width: 100%;
 }
 
 h1, h3, h4
@@ -138,16 +115,15 @@ p5
     background-size: cover;
     background-position: center center;
     background-attachment: local;
-    display: block;
     margin: auto;
+    display: block;
     position: absolute;
+    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    top:0;
-    width: 70%;
-    max-height: 360px;
-    padding: 20px;
+    width: 700px;
+    height: 400px;
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     border-radius: 25px;
@@ -162,6 +138,7 @@ p5
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    margin-right: 50px;
     display: block;
     margin: auto;
 }
@@ -173,16 +150,15 @@ p5
     background-size: cover;
     background-position: center center;
     background-attachment: local;
-    display: block;
     margin: auto;
     position: absolute;
     left: 0;
     right: 0;
-    top: 0;
     bottom: 0;
-    width: 70%;
-    height: 360px;
-    padding: 20px;
+    top:0;
+    width: 900px;
+    height: 400px;
+
     /* Сянка */
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
@@ -230,7 +206,9 @@ label
     color: #23243C;
     border-radius: 18px;
     padding: 10px 10px 10px 10px;   
+    
     font-family: 'Montserrat';
+    
 }
 
 .checkBox{
@@ -259,6 +237,8 @@ label
     color: white;
     display: block;
     text-align: center;
+    font-size: 20px;
+    font-weight: 400;
 }
 
 /* бутон + шрифт */
@@ -277,21 +257,7 @@ label
     margin: auto;
 }
 
-/* бутон на video */
-#Arm_Toggle_Button
-{
-    width: 150px;
-    color: #5681A0;
-    background: white;
-    border-radius: 50px;
-    padding: 5px;
-    margin: 15px;
-    margin: center;
-    cursor: pointer;
-    font-family: 'Montserrat';
-    font-size: 18px;
-    font-weight: 500;
-}
+
 
 
 /* Потребителски настройки */
@@ -369,6 +335,7 @@ td, th
     background-size: cover;
     background-position: center center;
     background-attachment: local;
+    margin: auto;
     display: block;
     margin: auto;
     position: absolute;
@@ -393,4 +360,20 @@ td, th
 #vid1
 {
     margin: auto;
+}
+
+/* бутон на video */
+#Arm_Toggle_Button
+{
+    width: 150px;
+    color: #5681A0;
+    background: white;
+    border-radius: 50px;
+    padding: 5px;
+    margin: 15px;
+    margin: center;
+    cursor: pointer;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    font-weight: 500;
 }
