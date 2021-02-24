@@ -23,7 +23,6 @@ body
 /* успех */
 .flashSuccess
 {
-    margin-top: 5px;
     background-color: #084C2A;
     text-align: center;
     color: white;

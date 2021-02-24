@@ -14,22 +14,22 @@ class RegistratorClass:
     
     def RegisterUser(self):
         registerForm = RegisterForm()
-        if current_user.isAdmin:
-            try:
-                self.__RegisterTheUser(registerForm)
-            except:
-                flash("Something went wrong with the registration", 'Failed')
+        if registerForm.validate_on_submit():
+            if current_user.isAdmin:
+                try:
+                    return self.__RegisterTheUser(registerForm)
+                except:
+                    flash("Something went wrong with the registration", 'Failed')
+            else:
+                flash("You can't register a user, unless you're an admin", 'Failed')
+                return redirect(url_for('MainPage.Home'))
         else:
-            flash("You can't register a user, unless you're an admin", 'Failed')
-            return redirect(url_for('Main.Home'))
-        return render_template('register.html', form = registerForm)
+            return render_template('register.html', form = registerForm)
 
     def __RegisterTheUser(self, registerForm):
-        if registerForm.validate_on_submit():
-            registerForm = RegisterForm()
-            hashedPass = bcrypt.generate_password_hash(registerForm.password.data).decode('utf-8')
-            userToAdd = users(registerForm.username.data, hashedPass, 0)
-            db.session.add(userToAdd)
-            db.session.commit()
-            flash("User created successfully", "Success")
-            return redirect(url_for('UserControl.Userinfo'))
+        hashedPass = bcrypt.generate_password_hash(registerForm.password.data).decode('utf-8')
+        userToAdd = users(registerForm.username.data, hashedPass, 0)
+        db.session.add(userToAdd)
+        db.session.commit()
+        flash("User created successfully", "Success")
+        return redirect(url_for('UserControl.AdminPanel'))

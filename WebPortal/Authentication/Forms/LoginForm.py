@@ -13,13 +13,17 @@ class LoginForm(FlaskForm):
     stayLoggedIn = BooleanField("Remember Me")
     submit = SubmitField("Log In")
 
+    def FindUser(self):
+        foundUser = users.query.filter_by(username = self.username.data).first()
+        return foundUser
+
     def validate_username(self, username):
-        foundUser = users.query.filter_by(username = username.data).first()
+        foundUser = self.FindUser()
         if foundUser is None:
             print('Im here')
             raise ValidationError('Username not found')
 
     def validate_password(self, password):
-        foundUser = users.query.filter_by(username = self.username.data).first()
+        foundUser = self.FindUser()
         if bcrypt.check_password_hash(foundUser.password, password.data) == False:
             raise ValidationError('Incorrect Password')

@@ -29,8 +29,8 @@
         <td><p1>{{item.isAdmin}}</p1></td>
         <td><a class="UserControlLink" href="{{url_for('UserControl.UsernameChange', user=item.username)}}">Change Username</a></td>
         <td><a class="UserControlLink" href="{{url_for('UserControl.PasswordChange', user=item.username)}}">Change Password</a></td>
-        <td><a class="UserControlLink" href="">{% if item.isAdmin %} Remove rights {% else %} Give Rights {% endif %}</a></td>
-        <td><a class="UserControlLink" href="">Delete</a></td>
+        <td><a class="UserControlLink" href="{{url_for('UserControl.GiveAdminRights', user=item.username)}}">{% if item.isAdmin %} Remove rights {% else %} Give Rights {% endif %}</a></td>
+        <td><a class="UserControlLink" href="{{url_for('UserControl.DeleteUser', user=item.username)}}">Delete</a></td>
     
      {% endfor %}
     </tr>

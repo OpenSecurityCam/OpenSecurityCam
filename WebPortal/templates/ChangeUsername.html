@@ -6,7 +6,7 @@
 
 {% block body %}
 <form id="form_design" action="#" method='POST'>
-    <h2>Change Username</h2>
+    <h2>Change Username for {{userToChange}}</h2>
     {{form.hidden_tag()}}
     <!-- Username -->
     {{form.username.label(class='formText')}}

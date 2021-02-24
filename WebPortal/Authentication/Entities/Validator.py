@@ -7,17 +7,17 @@ from WebPortal import db, bcrypt
 class Validator():
     def FindUserAndLogin(self):
         loginForm = LoginForm()
+        FoundUser = users.query.filter_by(username = loginForm.username.data).first()
         if current_user.is_authenticated:
             flash("Already Logged in", 'Failed')
             return redirect(url_for('UserControl.Userinfo'))
         elif loginForm.validate_on_submit():
-            return self.__FindUser(loginForm)
+            return self.__LoginUser(loginForm, FoundUser)
         else:
             return render_template('login.html', form = loginForm)
 
-    def __FindUser(self, loginForm):
+    def __LoginUser(self, loginForm, FoundUser):
         try:
-            FoundUser = users.query.filter_by(username = loginForm.username.data).first()
             if FoundUser:
                 login_user(FoundUser, remember=loginForm.submit.data)
                 flash("Logged in", 'Success')

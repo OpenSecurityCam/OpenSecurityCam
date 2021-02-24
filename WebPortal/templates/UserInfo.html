@@ -19,7 +19,7 @@
         <a class="ControlUserMenuLink" href="{{url_for('UserControl.PasswordChange', user=current_user.username)}}">Change password</a>
         <br>
         {%if current_user.isAdmin%}
-            <a class="ControlUserMenuLink" href="{{url_for('UserControl.UsersControl', user=current_user.username)}}">User Control</a>
+            <a class="ControlUserMenuLink" href="{{url_for('UserControl.AdminPanel')}}">User Control</a>
         {%endif%}
     </div>
 </div>

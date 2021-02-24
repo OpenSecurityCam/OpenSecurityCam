@@ -16,7 +16,7 @@ class UsernameChangerClass:
     #   if no -> it flashes a message and redirects it to the login page
     def Main(self, usernameToCheck):
         if current_user.is_authenticated: 
-            return self.__FormCheckMethod()
+            return self.__FormCheckMethod(usernameToCheck)
         else:
             flash("Not logged in yet", 'Failed')
             return redirect(url_for('Authentication.Login'))
@@ -25,27 +25,25 @@ class UsernameChangerClass:
     # Checks whether the request method is post or get
     #   if POST -> Redirects to the CheckCredentialsAndUpdateUsername 
     #   else (GET) -> Returns the HTML file with the form
-    def __FormCheckMethod(self):
-        userNameChangerForm = ChangeUsernameForm()
+    def __FormCheckMethod(self, usernameToCheck):
+        foundUser = users.query.filter_by(username = usernameToCheck).first()
+        userNameChangerForm = ChangeUsernameForm(foundUser)
         if userNameChangerForm.validate_on_submit():
-            return self.__CheckCredentialsAndUpdateUsername(userNameChangerForm)
+            return self.__CheckCredentialsAndUpdateUsername(userNameChangerForm, foundUser)
         else:
-            userNameChangerForm.username.data = current_user.username
-            return render_template('ChangeUsername.html', form=userNameChangerForm)
+            return render_template('ChangeUsername.html', form=userNameChangerForm, userToChange = foundUser.username)
 
 
     # Checks if the user credentials are right and updates the username
     # Checks if the user is found in the database
     #   If yes -> Checks the password by using bcrypt and flashes a message if it isn't correct
     #   If not -> Flashes a message
-    def __CheckCredentialsAndUpdateUsername(self, userNameChangerForm):
-        currentUser = users.query.filter_by(username = current_user.username).first()
-        if currentUser:
-            if bcrypt.check_password_hash(currentUser.password, userNameChangerForm.password.data):
-                currentUser.username = userNameChangerForm.username.data
+    def __CheckCredentialsAndUpdateUsername(self, userNameChangerForm, foundUser):
+        if foundUser:
+            if bcrypt.check_password_hash(foundUser.password, userNameChangerForm.password.data):
                 db.session.commit()
                 flash('Successfully changed credentials', 'Success')
-                return redirect(url_for('UserControl.Userinfo'))
+                return redirect(url_for('UserControl.AdminPanel'))
         else:
             flash("The user currently logged in doesn't seem to be in the database.", 'Failed')
-            return redirect(url_for('UserControl.UsernameChanger'))
+            return redirect(url_for())

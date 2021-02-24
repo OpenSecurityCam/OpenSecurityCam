@@ -25,7 +25,7 @@
             <div class = "NavigationBar">
                 <a class="NavBarLink" href="/">Main Page</a>
                 <a class="NavBarLink" href="{{url_for('UserControl.Userinfo')}}">{{current_user.username}}</a>
-                <a class="NavBarLink" href="{{url_for('Authentication.Logout')}}">Log Out</a>
+                <a class="NavBarLink" href="{{url_for('UserControl.Logout')}}">Log Out</a>
             </div>
         </div>
         {% endif %}
