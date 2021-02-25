@@ -1,3 +1,4 @@
+from flask.globals import request
 from flask_login.utils import logout_user
 from werkzeug.utils import redirect
 from WebPortal.models import users
@@ -47,6 +48,11 @@ def UsernameChange(user):
 def PasswordChange(user):
     passwordchanger = PasswordChangerClass()
     return passwordchanger.Main(user)
+
+@UserControl.route('/userinfo/ChangeProfilePicture/<user>', methods=['GET', 'POST'])
+def ChangeProfilePic(user):
+    if request.method == 'POST':
+        return f"Hey, it's working. You are {user}"
 
 
 @UserControl.route('/logout')

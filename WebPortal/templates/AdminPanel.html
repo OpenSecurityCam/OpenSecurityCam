@@ -15,8 +15,7 @@
     
     <br><br><br><br><br>
      <tr>
-        <th>Account</th>
-        <th>Admin status</th>
+        <th>Profile Picture</th>
         <th>Username</th>
         <th>Password</th>
         <th>Permision</th>
@@ -25,9 +24,14 @@
    {% for item in Users %}
    
     <tr>
-        <td><p1>{{item.username}}</p1></td>
-        <td><p1>{{item.isAdmin}}</p1></td>
-        <td><a class="UserControlLink" href="{{url_for('UserControl.UsernameChange', user=item.username)}}">Change Username</a></td>
+        <td>
+            <span method=post enctype=multipart/form-data>
+                <a href="{{url_for('UserControl.ChangeProfilePic', user=item.username)}}">
+                    <img src="{{url_for('static', filename="profilePics/Default-pic.png")}}"" class="ProfilePictureAdminPanel"/>
+                </a>
+            </span>
+        </td>
+        <td><a class="UserControlLink" href="{{url_for('UserControl.UsernameChange', user=item.username)}}">{{item.username}}</a></td>
         <td><a class="UserControlLink" href="{{url_for('UserControl.PasswordChange', user=item.username)}}">Change Password</a></td>
         <td><a class="UserControlLink" href="{{url_for('UserControl.GiveAdminRights', user=item.username)}}">{% if item.isAdmin %} Remove rights {% else %} Give Rights {% endif %}</a></td>
         <td><a class="UserControlLink" href="{{url_for('UserControl.DeleteUser', user=item.username)}}">Delete</a></td>
