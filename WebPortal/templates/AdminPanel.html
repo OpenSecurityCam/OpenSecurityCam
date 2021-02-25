@@ -27,7 +27,7 @@
         <td>
             <span method=post enctype=multipart/form-data>
                 <a href="{{url_for('UserControl.ChangeProfilePic', user=item.username)}}">
-                    <img src="{{url_for('static', filename="profilePics/Default-pic.png")}}"" class="ProfilePictureAdminPanel"/>
+                    <img src="{{url_for('static', filename="profilePics/" + item.profilePicture)}}"" class="ProfilePictureAdminPanel"/>
                 </a>
             </span>
         </td>

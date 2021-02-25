@@ -12,12 +12,12 @@ from WebPortal.Usercontrol.Entities.Registrator import RegistratorClass
 from WebPortal.Usercontrol.Entities.AdminPanel import AdminPanelClass
 from WebPortal.Usercontrol.Entities.RightsChanger import RightsChangerClass
 from WebPortal.Usercontrol.Entities.DeleteUser import DeleteUserClass
-from WebPortal import db
 
 UserControl = Blueprint('UserControl', __name__)
 
 @UserControl.route('/userinfo')
 def Userinfo():
+    # profilePic = url_for('static', )
     return render_template('UserInfo.html')
 
 @UserControl.route('/userinfo/AdminPanel')
@@ -52,6 +52,7 @@ def PasswordChange(user):
 @UserControl.route('/userinfo/ChangeProfilePicture/<user>', methods=['GET', 'POST'])
 def ChangeProfilePic(user):
     if request.method == 'POST':
+        
         return f"Hey, it's working. You are {user}"
 
 

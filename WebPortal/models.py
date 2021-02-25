@@ -8,9 +8,9 @@ def load_user(user_id):
 class users(db.Model, UserMixin):
     id = db.Column("id", db.Integer, primary_key = True, nullable = False)
     username = db.Column("username", db.String(50), unique=True, nullable = False)
-    password = db.Column("passcode", db.String(100), unique=True, nullable = False)
+    password = db.Column("password", db.String(100), unique=True, nullable = False)
+    profilePicture = db.Column("profilePicture", db.String(20), nullable = False, default='default.png')
     isAdmin = db.Column("isAdmin", db.Boolean, nullable = False, default = False)
-    # role = db.Column("RoleId", db.Boolean, nullable = False, default = False)
 
 
     def __init__(self, username, password, isAdmin):
@@ -18,9 +18,3 @@ class users(db.Model, UserMixin):
         self.password = password
         self.isAdmin = isAdmin
 
-
-# class roles():
-#     id = db.Column("id", db.Integer, primary_key = True, nullable = False)
-#     roleName = db.Column("RoleName", db.String(50), unique = True, nullable = False)
-#     permissions = db.Column("Permission" db.E)
-  
