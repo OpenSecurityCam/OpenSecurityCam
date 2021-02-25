@@ -141,6 +141,12 @@ p5
     box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
 }
 
+
+.ControlOptions
+{
+    text-align: center;
+}
+
 /* Профилна снимка */
 .ProfilePicture
 {
