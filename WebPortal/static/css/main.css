@@ -169,30 +169,7 @@ p5
 }
 
 
-/* фон на полетата */
-#userinfo{
-    background-image: url(Form_Background.png);
-    background-repeat: no-repeat, repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: local;
-    margin: auto;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top:0;
-    width: 900px;
-    height: 400px;
 
-    /* Сянка */
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    border-radius: 25px;
-    -webkit-box-shadow: 0px 0px 25px 0px rgba(50, 50, 50, 0.72);
-    -moz-box-shadow:    0px 0px 25px 0px rgba(50, 50, 50, 0.72);
-    box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
-}
 
 
 /* цвят на шрифта на формата input големина */
@@ -256,16 +233,7 @@ label
 
 /* Бутони */
 
-/* Регистрационен бутон */
-.RegisterBtn
-{
-    text-decoration: none;
-    color: white;
-    display: block;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 400;
-}
+
 
 /* бутон + шрифт */
 .SubmitBtn
@@ -286,31 +254,7 @@ label
 
 
 
-/* Потребителски настройки */
 
-/* Потребителско поле */
-.UserGreeter
-{
-    /* */
-}
-
-/* Линкове към настройки */
-.ControlUserMenuLink
-{
-    color: white;
-    text-decoration: none;
-    font-size: 25px;
-    width: 100%;
-    transition: 0.4s;
-}
-.ControlUserMenuLink:hover
-{
-    color: rgb(95, 95, 95);
-    text-decoration: none;
-    font-size: 26px;
-    width: 100%;
-    transition: 0.4s;
-}
 
 
 /* видео плеър */
@@ -351,3 +295,4 @@ label
     font-weight: 500;
     transition: 0.4s;
 }
+
