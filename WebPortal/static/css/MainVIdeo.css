@@ -1,0 +1,40 @@
+/* видео плеър */
+#vid1
+{
+    margin: auto;
+    width: 45%;
+    height: 400px;
+}
+
+/* бутон на video */
+#Arm_Toggle_Button
+{
+    width: 150px;
+    color: #5681A0;
+    background: white;
+    border-radius: 50px;
+    padding: 5px;
+    margin: 15px;
+    margin: center;
+    cursor: pointer;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.4s;
+}
+
+#Arm_Toggle_Button:hover
+{
+    width: 160px;
+    color: #5681A0;
+    background: white;
+    border-radius: 50px;
+    padding: 5px;
+    margin: 15px;
+    margin: center;
+    cursor: pointer;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-weight: 500;
+    transition: 0.4s;
+}
