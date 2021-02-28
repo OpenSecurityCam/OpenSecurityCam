@@ -11,12 +11,18 @@
 {% block body %}
 <div id="userinfo">
     <div class="UserGreeter">
-        <form method=POST enctype=multipart/form-data action="{{ url_for('UserControl.ChangeProfilePic', user=current_user.username) }}">
-            <label for="image">
-                <input type="image" name="image" id="image" style="display:none;"/>
-                <img src="{{url_for('static', filename="profilePics/" + current_user.profilePicture)}}" class="ProfilePicture"/>
-                <input type="submit" name="image" id="image" style="display:none;"/>
-             </label>
+
+        <img src="{{url_for('static', filename="profilePics/" + current_user.profilePicture)}}" class="ProfilePicture"/>
+                
+        <form method=POST enctype=multipart/form-data action="">
+            {{form.hidden_tag()}}
+            {{form.profilePicture}}
+            {% if form.profilePicture.errors %}
+                {% for error in form.profilePicture.errors%}
+                    <br><p5>{{error}}</p5>
+                {% endfor %}
+            {% endif %}
+            {{form.submit}}
         </form>
         <h1>Hello, {{current_user.username}}</h1>
         <h2 class="AdminStatus">Admin Account: {{current_user.isAdmin}}</h2>

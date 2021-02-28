@@ -13,12 +13,26 @@ from WebPortal.Usercontrol.Entities.AdminPanel import AdminPanelClass
 from WebPortal.Usercontrol.Entities.RightsChanger import RightsChangerClass
 from WebPortal.Usercontrol.Entities.DeleteUser import DeleteUserClass
 
+from WebPortal.Usercontrol.Forms.ChangeProfilePicForm import ChangeProfilePictureForm
+import secrets
+from PIL import Image
+import os
+from WebPortal import db
+
 UserControl = Blueprint('UserControl', __name__)
 
-@UserControl.route('/userinfo')
+@UserControl.route('/userinfo', methods=['GET', 'POST'])
 def Userinfo():
-    # profilePic = url_for('static', )
-    return render_template('UserInfo.html')
+    cppf = ChangeProfilePictureForm()
+    if request.method == 'POST':
+        foundUser = users.query.filter_by(username = current_user.username).first()
+        if cppf.profilePicture.data:
+            foundUser.profilePicture = save_picture(cppf.profilePicture.data)
+            db.session.commit()
+        else:
+            foundUser.profilePicture = 'default.png'
+            db.session.commit()
+    return render_template('UserInfo.html', form = cppf)
 
 @UserControl.route('/userinfo/AdminPanel')
 def AdminPanel():
@@ -49,11 +63,21 @@ def PasswordChange(user):
     passwordchanger = PasswordChangerClass()
     return passwordchanger.Main(user)
 
-@UserControl.route('/userinfo/ChangeProfilePicture/<user>', methods=['GET', 'POST'])
-def ChangeProfilePic(user):
-    if request.method == 'POST':
-        
-        return f"Hey, it's working. You are {user}"
+def save_picture(form_picture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = random_hex + f_ext
+    picture_path = os.path.join('WebPortal/static/profilePics', picture_fn)
+
+    output_size = (300, 300)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+    i.save(picture_path)
+
+    return picture_fn
+
+# @UserControl.route('/userinfo/ChangeProfilePicture/<user>', methods=['GET', 'POST'])
+# def ChangeProfilePic(user):
 
 
 @UserControl.route('/logout')
