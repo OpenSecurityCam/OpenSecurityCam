@@ -21,18 +21,9 @@ from WebPortal import db
 
 UserControl = Blueprint('UserControl', __name__)
 
-@UserControl.route('/userinfo', methods=['GET', 'POST'])
+@UserControl.route('/userinfo')
 def Userinfo():
-    cppf = ChangeProfilePictureForm()
-    if request.method == 'POST':
-        foundUser = users.query.filter_by(username = current_user.username).first()
-        if cppf.profilePicture.data:
-            foundUser.profilePicture = save_picture(cppf.profilePicture.data)
-            db.session.commit()
-        else:
-            foundUser.profilePicture = 'default.png'
-            db.session.commit()
-    return render_template('UserInfo.html', form = cppf)
+    return render_template('UserInfo.html')
 
 @UserControl.route('/userinfo/AdminPanel')
 def AdminPanel():
@@ -76,9 +67,24 @@ def save_picture(form_picture):
 
     return picture_fn
 
-# @UserControl.route('/userinfo/ChangeProfilePicture/<user>', methods=['GET', 'POST'])
-# def ChangeProfilePic(user):
-
+@UserControl.route('/userinfo/ProfilePictureChange/<user>', methods=['GET', 'POST'])
+def ChangeProfilePicture(user):
+    cppf = ChangeProfilePictureForm()
+    if request.method == 'POST':
+        foundUser = users.query.filter_by(username = user).first()
+        if foundUser.profilePicture != 'default.png':
+            os.remove('WebPortal/static/profilePics/' + foundUser.profilePicture)
+        if cppf.profilePicture.data:
+            foundUser.profilePicture = save_picture(cppf.profilePicture.data)
+            db.session.commit()
+            return redirect(url_for('UserControl.Userinfo'))
+        else:
+            foundUser.profilePicture = 'default.png'
+            db.session.commit()
+            return redirect(url_for('UserControl.Userinfo'))
+    else:
+        return render_template('UpdateProfilePicture.html', form = cppf)
+    
 
 @UserControl.route('/logout')
 def Logout():

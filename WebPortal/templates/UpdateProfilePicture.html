@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+
+{% block head %}
+    <title>User Information</title>
+{% endblock head %}
+    
+
+{% block body %}
+<img src="{{url_for('static', filename="profilePics/" + current_user.profilePicture)}}" class="ProfilePicture"/>
+                
+<form method="POST" action="" enctype="multipart/form-data">
+    {{form.hidden_tag()}}
+    {{form.profilePicture}}
+    {{form.submit}}
+    {% if form.profilePicture.errors %}
+        {% for error in form.profilePicture.errors%}
+            <br><p5>{{error}}</p5>
+        {% endfor %}
+    {% endif %}
+</form>
+{% endblock body %}
+    

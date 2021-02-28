@@ -11,4 +11,4 @@ from flask_wtf.file import FileField, FileAllowed
 class ChangeProfilePictureForm(FlaskForm):
     # Form Fileds
     profilePicture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg' 'png'], 'File Not Allowed')])
-    submit = SubmitField("Updaye Profile Picture")
+    submit = SubmitField("Update Profile Picture")
