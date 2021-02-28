@@ -14,15 +14,15 @@
 
         <img src="{{url_for('static', filename="profilePics/" + current_user.profilePicture)}}" class="ProfilePicture"/>
                 
-        <form method=POST enctype=multipart/form-data action="">
+        <form method="POST" action="" enctype="multipart/form-data">
             {{form.hidden_tag()}}
             {{form.profilePicture}}
+            {{form.submit}}
             {% if form.profilePicture.errors %}
                 {% for error in form.profilePicture.errors%}
                     <br><p5>{{error}}</p5>
                 {% endfor %}
             {% endif %}
-            {{form.submit}}
         </form>
         <h1>Hello, {{current_user.username}}</h1>
         <h2 class="AdminStatus">Admin Account: {{current_user.isAdmin}}</h2>
