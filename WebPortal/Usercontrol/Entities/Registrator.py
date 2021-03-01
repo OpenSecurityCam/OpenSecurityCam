@@ -13,6 +13,7 @@ from WebPortal.Usercontrol.Forms.RegisterForm import RegisterForm
 class RegistratorClass:
     
     def RegisterUser(self):
+        # Intializes the register form
         registerForm = RegisterForm()
         if registerForm.validate_on_submit():
             if current_user.isAdmin:
@@ -21,15 +22,22 @@ class RegistratorClass:
                 except:
                     flash("Something went wrong with the registration", 'Failed')
             else:
-                flash("You can't register a user, unless you're an admin", 'Failed')
-                return redirect(url_for('MainPage.Home'))
+                return self.__FlashUserNotAdmin()
         else:
             return render_template('register.html', form = registerForm)
 
+    # Registers the user
     def __RegisterTheUser(self, registerForm):
+        # Hashes the password 
         hashedPass = bcrypt.generate_password_hash(registerForm.password.data).decode('utf-8')
+        # Adds user to database as a object 
         userToAdd = users(registerForm.username.data, hashedPass, 0)
         db.session.add(userToAdd)
         db.session.commit()
         flash("User created successfully", "Success")
         return redirect(url_for('UserControl.AdminPanel'))
+
+    # Flashes a message and redirects to the Userinfo page if the current user isn't an admin
+    def __FlashUserNotAdmin():
+        flash('You need to be an admin to do this operation', 'Failed')
+        return redirect(url_for('UserControl.Userinfo'))

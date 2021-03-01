@@ -15,6 +15,7 @@ class ChangePasswordForm(FlaskForm):
     confirmPass = PasswordField("Repeat Password", validators=[DataRequired(), Length(min=6, max=20), EqualTo('password')])
     submit = SubmitField("Change Password")
 
+    # Constructor that gets the user, so we can check the credentials and raise ValidationErrors
     def __init__(self, foundUser, *args, **kwargs):
         self.foundUser = foundUser
         super(ChangePasswordForm, self).__init__(*args, **kwargs)

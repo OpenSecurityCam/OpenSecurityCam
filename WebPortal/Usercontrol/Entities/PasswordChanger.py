@@ -11,37 +11,40 @@ from WebPortal.models import users
 
 # Class that updates the user's username
 class PasswordChangerClass:
-    # Checks if the user is logged
-    #   if yes -> it goes to the __UpdateUserNameInfo method
-    #   if no -> it flashes a message and redirects it to the login page
-    def Main(self, usernameToCheck):
+
+    # Constructor
+    def __init__(self, user):
+        self.user = user
+
+    # Main Function
+    def Main(self):
         if current_user.is_authenticated: 
-            return self.__FormCheckMethod(usernameToCheck)
+            return self.__FormCheckMethod()
         else:
             flash("Not logged in yet", 'Failed')
             return redirect(url_for('Authentication.Login'))
 
 
-    # Checks whether the request method is post or get
-    #   if POST -> Redirects to the CheckCredentialsAndUpdateUsername 
-    #   else (GET) -> Returns the HTML file with the form
-    def __FormCheckMethod(self, usernameToCheck):
-        foundUser = users.query.filter_by(username = usernameToCheck).first()
-        passwordChangerForm = ChangePasswordForm(foundUser)
+    # Finds the user giving user string 
+    def __User(self):
+        return users.query.filter_by(username = self.user).first()
+
+    # Checks the method of the form
+    def __FormCheckMethod(self):
+        # Initializes the form giving it user as a value
+        passwordChangerForm = ChangePasswordForm(self.__User())
+        # Checks the request.method
         if passwordChangerForm.validate_on_submit():
-            return self.__CheckCredentialsAndUpdatePassword(passwordChangerForm, foundUser)
+            return self.__CheckCredentialsAndUpdatePassword(passwordChangerForm)
         else:
-            return render_template('ChangePassword.html', form=passwordChangerForm, userToChange = foundUser.username)
+            return render_template('ChangePassword.html', form=passwordChangerForm)
 
-
-    # Checks if the user credentials are right and updates the username
-    # Checks if the user is found in the database
-    #   If yes -> Checks the password by using bcrypt and flashes a message if it isn't correct
-    #   If not -> Flashes a message
-    def __CheckCredentialsAndUpdatePassword(self, passwordChangerForm, foundUser):
+    # Checks the credentials and updated the username
+    def __CheckCredentialsAndUpdatePassword(self, passwordChangerForm):
         try:
-            if foundUser:
-                foundUser.password = bcrypt.generate_password_hash(passwordChangerForm.confirmPass.data).decode('utf-8')
+            if self.__User():
+                # Generates the new password hash
+                self.__User().password = bcrypt.generate_password_hash(passwordChangerForm.confirmPass.data).decode('utf-8')
                 db.session.commit()
                 flash('Password changed successfully', 'Success')
                 return redirect(url_for('UserControl.AdminPanel'))
