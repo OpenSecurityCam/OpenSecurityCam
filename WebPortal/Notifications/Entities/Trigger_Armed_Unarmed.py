@@ -2,7 +2,7 @@ from flask_socketio import emit
 
 from WebPortal import OneSignalClient
 from WebPortal.stateclass import state
-from WebPortal.MainPage.Entities.Notifications.Notifications import Notifications
+from WebPortal.Notifications.Entities.Notifications import Notifications
 
 class ArmTriggerClass:
 
