@@ -42,7 +42,10 @@ class ProfilePictureChangerClass:
     # Remove the profile picture if it isn't the default one
     def __RemoveProfilePictureIfNotDefault(self):
         if self.__User().profilePicture != 'default.png':
-            os.remove('WebPortal/static/profilePics/' + self.__User().profilePicture)
+            try:
+                os.remove('WebPortal/static/profilePics/' + self.__User().profilePicture)
+            except:
+                return self.__ChangeProfilePictureToDefault()
 
     # Change the profile picture
     def __ChangeProfilePicture(self, profilePicture):
