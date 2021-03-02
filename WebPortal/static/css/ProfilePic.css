@@ -14,8 +14,8 @@
     right: 0;
     bottom: 0;
     top:0;
-    width: 900px;
-    height: 450px;
+    width: 800px;
+    height: 400px;
 
     /* Сянка */
     -webkit-border-radius: 25px;
@@ -28,7 +28,7 @@
 
 .PicFormDesign
 {
-    padding-top: 30px;
+    padding-top: 50px;
 }
 
 /* Потребителско поле */
@@ -59,7 +59,7 @@
 /* бутон + шрифт */
 .SubPic
 {
-    width: 300px;
+    width: 250px;
     height: 50px;
     color: #5681A0;
     background: white;
