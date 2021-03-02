@@ -10,13 +10,13 @@
 
 {% block body %}
 <div class="PicDesign">
-    <div class="UserGreeter">
+    <div class="PicFormDesign">
 
 <img src="{{url_for('static', filename="profilePics/" + userProfilePicture)}}" class="ProfilePicture"/>
                 
 <form method="POST" action="" enctype="multipart/form-data">
     {{form.hidden_tag()}}
-    {{form.profilePicture(class='SubPic')}}
+    {{form.profilePicture(class='ChosePicFile')}}
     {{form.submit(class='SubPic')}}
     {% if form.profilePicture.errors %}
         {% for error in form.profilePicture.errors%}
