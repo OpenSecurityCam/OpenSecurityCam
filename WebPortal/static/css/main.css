@@ -46,20 +46,11 @@ body
 
 /* ДИЗАЙНИ */
 /* Стилове на шрифта */
-h1, h3, h4
+h
 {
     color: white;
     font-size: 48px;
     text-align: center;
-}
-h3
-{
-    color: white;
-    font-size: 18px;
-    text-align: center;
-    float: center;
-    font-weight: 400;
-    margin-bottom: 0px;
 }
 h2 
 {
@@ -70,6 +61,25 @@ h2
     margin-bottom: 0px;
     padding: 12px 0;
 }
+h3
+{
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    float: center;
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+
+h4
+{
+    color: white;
+    font-size: 32px;
+    text-align: center;
+    float: center;
+    margin-bottom: 30px;
+}
+
 
 p1
 {

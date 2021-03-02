@@ -15,7 +15,7 @@
     bottom: 0;
     top:0;
     width: 800px;
-    height: 400px;
+    height: 450px;
 
     /* Сянка */
     -webkit-border-radius: 25px;
@@ -28,35 +28,28 @@
 
 .PicFormDesign
 {
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
-/* Потребителско поле */
 .PicGroup
 {
     padding-top: 30px;
 }
 
-/* бутон + шрифт */
 .ChosePicFile
 {
     width: 300px;
     height: 50px;
     color: white;
-    padding: 20px;
+    padding: 15px;
+    padding-left: 100px;
     cursor: pointer;
     font-family: 'Montserrat';
     font-size: 16px;
     display: block;
     margin: auto;
-    transition: 0.4s;
 }
-.ChosePicFile:hover
-{
-    font-size: 17px;
-    transition: 0.4s;
-}
-/* бутон + шрифт */
+
 .SubPic
 {
     width: 250px;
@@ -70,7 +63,6 @@
     font-size: 18px;
     display: block;
     margin: auto;
-    
 }
 
 .ProfilePicture
