@@ -6,8 +6,8 @@ from flask_socketio import SocketIO
 from onesignal_sdk.client import Client
 
 
-from WebPortal.ConfigFlask import Config
-from WebPortal.ConfigOneSignal import ConfigOneSignal
+from WebPortal.Config.ConfigFlask import Config
+from WebPortal.Config.ConfigOneSignal import ConfigOneSignal
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
