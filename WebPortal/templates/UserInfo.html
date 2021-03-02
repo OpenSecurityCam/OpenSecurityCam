@@ -15,7 +15,7 @@
         <a href="{{ url_for('UserControl.ChangeProfilePicture' , user = current_user.username) }}">
             <img src="{{url_for('static', filename="profilePics/" + current_user.profilePicture)}}" class="ProfilePicture"/>
         </a>
-        <p1 text-align="center">Click on the profile picture to change it</p1>
+        <h3 text-align="center">Click on the profile picture to change it</h3>
         <h1>Hello, {{current_user.username}}</h1>
         <h2 class="AdminStatus">Admin Account: {{current_user.isAdmin}}</h2>
     </div>
