@@ -14,8 +14,8 @@
     right: 0;
     bottom: 0;
     top:0;
-    width: 70%;
-    height: 400px;
+    width: 900px;
+    height: 450px;
 
     /* Сянка */
     -webkit-border-radius: 25px;
@@ -46,9 +46,9 @@
     transition: 0.4s;
 }
 /* Потребителско поле */
-.UserGreeter
+.PicGroup
 {
-    padding-top: 300px;
+    padding-top: 30px;
 }
 
 /* Линкове към настройки */

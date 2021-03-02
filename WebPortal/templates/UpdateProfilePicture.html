@@ -3,21 +3,28 @@
 
 {% block head %}
     <title>User Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/ProfilePic.css" )}}">
+
 {% endblock head %}
     
 
 {% block body %}
+<div class="PicDesign">
+    <div class="UserGreeter">
+
 <img src="{{url_for('static', filename="profilePics/" + userProfilePicture)}}" class="ProfilePicture"/>
                 
 <form method="POST" action="" enctype="multipart/form-data">
     {{form.hidden_tag()}}
-    {{form.profilePicture}}
-    {{form.submit}}
+    {{form.profilePicture(class='SubPic')}}
+    {{form.submit(class='SubPic')}}
     {% if form.profilePicture.errors %}
         {% for error in form.profilePicture.errors%}
             <br><p5>{{error}}</p5>
         {% endfor %}
     {% endif %}
 </form>
+</div>
+</div>
 {% endblock body %}
     
