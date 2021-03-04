@@ -31,6 +31,6 @@ class ChangeUsernameForm(FlaskForm):
 
     # Validates if the password is correct and if not -> raises an error that can be seen in the front-end
     def validate_password(self, password):
-        if bcrypt.check_password_hash(self.foundUser.password, password.data) == False:
+        if bcrypt.check_password_hash(self.foundUser.password, password.data) == False and current_user.isAdmin == False:
             raise ValidationError('The password is incorrect. Please try again!')
 

@@ -41,7 +41,8 @@ class UsernameChangerClass:
     def __CheckCredentialsAndUpdateUsername(self, userNameChangerForm):
         if self.__User():
             # Checks if the password hash is equal to the given password in the form
-            if bcrypt.check_password_hash(self.__User().password, userNameChangerForm.password.data):
+            if bcrypt.check_password_hash(self.__User().password, userNameChangerForm.password.data) and current_user.isAdmin == False:
+                self.__User().username = userNameChangerForm.username.data
                 db.session.commit()
                 flash('Successfully changed credentials', 'Success')
                 return redirect(url_for('UserControl.AdminPanel'))

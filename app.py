@@ -1,3 +1,6 @@
+import sys
+sys.path.append('.')
+
 from WebPortal import create_WebPortal, SocketIOClient
 
 app = create_WebPortal()
