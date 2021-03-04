@@ -2,9 +2,12 @@ from WebPortal import SocketIOClient
 from flask import Blueprint, redirect, url_for, render_template, flash, send_from_directory
 from flask_login import current_user
 from werkzeug.wrappers import Response
-from WebPortal.stateclass import state
+import sys
+sys.path.append('..')
+from stateClass import State
 
 MainPage = Blueprint('MainPage', __name__)
+
 
 # Headers
 @MainPage.after_request
@@ -21,7 +24,7 @@ def add_header(response):
 def Home():
     # Checks if the user is authenticated
     if current_user.is_authenticated:
-        return render_template('index.html', SystemState = state.SystemState)
+        return render_template('index.html', SystemState = State.state)
     else:
         # If not it redirects them to the login page
         return redirect(url_for('Authentication.Login'))  

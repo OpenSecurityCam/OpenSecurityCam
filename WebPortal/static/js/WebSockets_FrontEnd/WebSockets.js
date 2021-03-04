@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost');
+var socket = io.connect('http://79.124.19.242:8081');
 
 socket.on('connect', function() {
     socket.send('Connected to Server');

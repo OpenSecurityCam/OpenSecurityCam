@@ -1,17 +1,19 @@
 from flask_socketio import emit
 
 from WebPortal import OneSignalClient
-from WebPortal.stateclass import state
+import sys
+sys.path.append('..')
+from stateClass import State
 from WebPortal.Notifications.Entities.Notifications import Notifications
 
 class ArmTriggerClass:
 
     def HandleSystemArm():
-        if state.SystemState:
-            state.SystemState = False
+        if State.state:
+            State.state = False
             OneSignalClient.send_notification(Notifications.System_Unarmed_Notification)
             emit("UnarmSystem", broadcast=True)
         else:
-            state.SystemState = True
+            State.state = True
             OneSignalClient.send_notification(Notifications.System_Armed_Notification)
             emit("ArmSystem", broadcast=True)
