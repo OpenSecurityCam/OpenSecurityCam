@@ -4,7 +4,7 @@ import time
 import keyboard
 from WebPortal import OneSignalClient
 from WebPortal.MainPage.routes import SystemState
-from WebPortal.MainPage.Entities.Notifications.Notifications import Notifications
+from WebPortal.Notifications.Entities.Notifications import Notifications
 
 warningLED = LED(17)
 sensor = MotionSensor(4)
