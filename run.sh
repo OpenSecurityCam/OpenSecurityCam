@@ -1,2 +1,2 @@
-export FLASK_APP=app.py
+export FLASK_APP=server.py
 flask run --no-reload --host=0.0.0.0
