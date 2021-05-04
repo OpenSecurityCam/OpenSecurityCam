@@ -2,10 +2,15 @@
 #vid1
 {
     margin: auto;
-    width: 45%;
-    height: 400px;
+    width: 80%;
+    height: 600px;
 }
-
+@media only screen and (max-width: 640px) {
+    #vid1{
+        width: 90%;
+        height: 200px;
+    }
+}
 /* бутон на video */
 #Arm_Toggle_Button
 {
@@ -14,15 +19,18 @@
     background: white;
     border-radius: 50px;
     padding: 5px;
-    margin: 15px;
-    margin: center;
+    margin: 15px calc(80% - 150px) 15px 0;
     cursor: pointer;
     font-family: 'Montserrat';
     font-size: 18px;
     font-weight: 500;
     transition: 0.4s;
 }
-
+@media only screen and (max-width: 640px) {
+    #Arm_Toggle_Button{
+        margin: 15px calc(90% - 150px) 15px 0;
+    }
+}
 #Arm_Toggle_Button:hover
 {
     width: 160px;
@@ -30,11 +38,15 @@
     background: white;
     border-radius: 50px;
     padding: 5px;
-    margin: 15px;
-    margin: center;
+    margin: 15px calc(80% - 150px) 15px 0;
     cursor: pointer;
     font-family: 'Montserrat';
     font-size: 20px;
     font-weight: 500;
     transition: 0.4s;
+}
+@media only screen and (max-width: 640px) {
+    #Arm_Toggle_Button:hover{
+        margin: 15px calc(90% - 150px) 15px 0;
+    }
 }

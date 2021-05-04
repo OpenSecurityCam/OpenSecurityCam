@@ -52,6 +52,12 @@ h1
     font-size: 48px;
     text-align: center;
 }
+@media only screen and (max-width: 440px) {
+    h1{
+    font-size: 2em;
+    }
+}
+
 h2 
 {
     text-align: center;
@@ -60,6 +66,11 @@ h2
     font-size: 20px;
     margin-bottom: 0px;
     padding: 12px 0;
+}
+@media only screen and (max-width: 440px) {
+    h2{
+    font-size: 1em;
+    }
 }
 h3
 {
@@ -70,7 +81,11 @@ h3
     font-weight: 400;
     margin-bottom: 0px;
 }
-
+@media only screen and (max-width: 440px) {
+    h3{
+    font-size: 1em;
+    }
+}
 h4
 {
     color: white;
@@ -114,6 +129,11 @@ p5
     font-weight: 700;
     width: 100%;
 }
+@media only screen and (max-width: 440px) {
+    .TopBarTitle{
+    font-size: 2em;
+    }
+}
 .NavBarLink
 {
     color: white;
@@ -122,6 +142,12 @@ p5
     font-size: 22px;
     width: 100%;
     transition: 0.4s;
+}
+@media only screen and (max-width: 440px){
+    .NavBarLink{
+        font-size: 1,5em;
+    }
+    
 }
 .NavBarLink:hover
 {
@@ -132,7 +158,12 @@ p5
     width: 100%;
     transition: 0.4s;
 }
-
+@media only screen and (max-width: 440px){
+    .NavBarLink{
+        font-size: 1,5em;
+    }
+    
+}
 
 /* Профилна снимка */
 .ProfilePicture
@@ -172,13 +203,7 @@ p5
     background-size: cover;
     background-position: center center;
     background-attachment: local;
-    margin: auto;
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    margin: 20px auto 0 auto;
     width: 700px;
     height: 450px;
     -webkit-border-radius: 25px;
@@ -187,6 +212,14 @@ p5
     -webkit-box-shadow: 0px 0px 25px 0px rgba(50, 50, 50, 0.72);
     -moz-box-shadow:    0px 0px 25px 0px rgba(50, 50, 50, 0.72);
     box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+}
+
+#form_design
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -198,7 +231,11 @@ label
     text-align: center;
     font-family: 'Montserrat';
 }
-
+@media only screen and (max-width: 440px) {
+    label{
+        padding-top: 5px;
+    }
+}
 /* Заглавия на input формите */
 .formText
 {
@@ -214,6 +251,11 @@ label
 
     /* ляво*/
     100px;
+}
+@media only screen and (max-width: 440px) {
+    .formText{
+        margin: 0px 0px 10px 50px;
+    }
 }
 
 /* цвят на input текста в полето */
@@ -245,6 +287,11 @@ label
     /* ляво*/
     100px;
 }
+@media only screen and (max-width: 440px) {
+    .checkBox{
+        margin: 3px 0px 15px 50px;
+    }
+}
 
 /* бутон + шрифт */
 .SubmitBtn
@@ -261,5 +308,13 @@ label
     display: block;
     margin: auto;
     
+}
+
+.Content
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
