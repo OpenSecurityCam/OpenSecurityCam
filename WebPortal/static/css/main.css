@@ -52,11 +52,7 @@ h1
     font-size: 48px;
     text-align: center;
 }
-@media only screen and (max-width: 440px) {
-    h1{
-    font-size: 2em;
-    }
-}
+
 
 h2 
 {
@@ -67,11 +63,7 @@ h2
     margin-bottom: 0px;
     padding: 12px 0;
 }
-@media only screen and (max-width: 440px) {
-    h2{
-    font-size: 1em;
-    }
-}
+
 h3
 {
     color: white;
@@ -81,11 +73,7 @@ h3
     font-weight: 400;
     margin-bottom: 0px;
 }
-@media only screen and (max-width: 440px) {
-    h3{
-    font-size: 1em;
-    }
-}
+
 h4
 {
     color: white;
@@ -129,11 +117,7 @@ p5
     font-weight: 700;
     width: 100%;
 }
-@media only screen and (max-width: 440px) {
-    .TopBarTitle{
-    font-size: 2em;
-    }
-}
+
 .NavBarLink
 {
     color: white;
@@ -143,12 +127,7 @@ p5
     width: 100%;
     transition: 0.4s;
 }
-@media only screen and (max-width: 440px){
-    .NavBarLink{
-        font-size: 1,5em;
-    }
-    
-}
+
 .NavBarLink:hover
 {
     color: rgb(85, 85, 85);
@@ -158,12 +137,7 @@ p5
     width: 100%;
     transition: 0.4s;
 }
-@media only screen and (max-width: 440px){
-    .NavBarLink{
-        font-size: 1,5em;
-    }
-    
-}
+
 
 /* Профилна снимка */
 .ProfilePicture
@@ -216,7 +190,6 @@ p5
 
 #form_design
 {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -231,11 +204,7 @@ label
     text-align: center;
     font-family: 'Montserrat';
 }
-@media only screen and (max-width: 440px) {
-    label{
-        padding-top: 5px;
-    }
-}
+
 /* Заглавия на input формите */
 .formText
 {
@@ -251,11 +220,6 @@ label
 
     /* ляво*/
     100px;
-}
-@media only screen and (max-width: 440px) {
-    .formText{
-        margin: 0px 0px 10px 50px;
-    }
 }
 
 /* цвят на input текста в полето */
@@ -287,11 +251,7 @@ label
     /* ляво*/
     100px;
 }
-@media only screen and (max-width: 440px) {
-    .checkBox{
-        margin: 3px 0px 15px 50px;
-    }
-}
+
 
 /* бутон + шрифт */
 .SubmitBtn
@@ -318,3 +278,63 @@ label
     align-items: center;
 }
 
+@media only screen and (max-width: 440px) {
+    h1{
+    font-size: 2em;
+    }
+    h2, h3, h4{
+        font-size: 1em;
+    }
+    .TopBarTitle{
+    font-size: 2em;
+    }
+    .checkBox{
+        margin: 3px 0px 15px 50px;
+    }
+    .formText{
+        margin: 10px 0px 10px 50px;
+    }
+    label{
+        padding-top: 5px;
+    }
+    #form_design{
+        width: 350px;
+        height: 400px;
+    }
+    .NavBarLink{
+        font-size: 1.1em;
+    }
+    .NavBarLink:hover{
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (min-width: 441px) and (max-width: 520px) {    h1{
+        font-size: 1.9em;
+        }
+        h2, h3, h4{
+            font-size: 1em;
+        }
+        .TopBarTitle{
+        font-size: 1.9em;
+        }
+        .checkBox{
+            margin: 3px 0px 15px 45px;
+        }
+        .formText{
+            margin: 0px 0px 10px 45px;
+        }
+        label{
+            padding-top: 10px;
+        }
+        #form_design{
+            width: 350px;
+            height: 400px;
+        }
+        .NavBarLink{
+            font-size: 1.1em;
+        }
+        .NavBarLink:hover{
+            font-size: 1.2em;
+        }
+    }

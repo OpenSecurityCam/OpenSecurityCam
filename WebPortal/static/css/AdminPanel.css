@@ -133,7 +133,8 @@ td, th
     text-align: left;
 }
 
-@media only screen and (max-width: 640px) {
+/* Дизайн за телефони до 440px */
+@media only screen and (max-width: 440px) {
     .UserControlBox{
         width: 80%;
         height: 400px;
@@ -148,4 +149,44 @@ td, th
     tbody {
         width: 50%;
     }
+    .ProfilePictureAdminPanel
+    {
+        width: 40px;
+        height: 40px;
+    }
+    .ProfilePictureAdminPanel:hover
+    {
+        width: 40px;
+        height: 40px;
+    }
+
+}
+@media only screen and (min-width: 441px) and (max-width: 520px) {
+    .UserControlBox{
+        width: 80%;
+        height: 400px;
+    }
+
+    td, th{
+        font-size: 1em;
+        padding: 10px 10px 10px 10px;
+    }
+    thead {
+        width: 65%;
+    }
+    tbody {
+        width: 65%;
+    }
+
+    .ProfilePictureAdminPanel
+    {
+        width: 40px;
+        height: 40px;
+    }
+    .ProfilePictureAdminPanel:hover
+    {
+        width: 40px;
+        height: 40px;
+    }
+
 }
