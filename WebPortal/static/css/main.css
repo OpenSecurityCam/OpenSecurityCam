@@ -309,7 +309,8 @@ label
     }
 }
 
-@media only screen and (min-width: 441px) and (max-width: 520px) {    h1{
+@media only screen and (min-width: 441px) and (max-width: 520px) {    
+        h1{
         font-size: 1.9em;
         }
         h2, h3, h4{
@@ -338,3 +339,33 @@ label
             font-size: 1.2em;
         }
     }
+    @media only screen and (min-width: 521px) and (max-width: 640px) {
+            h1{
+            font-size: 2.2em;
+            }
+            h2, h3, h4{
+                font-size: 1.3em;
+            }
+            .TopBarTitle{
+            font-size: 2.2em;
+            }
+            .checkBox{
+                margin: 3px 0px 15px 70px;
+            }
+            .formText{
+                margin: 0px 0px 10px 70px;
+            }
+            label{
+                padding-top: 10px;
+            }
+            #form_design{
+                width: 350px;
+                height: 400px;
+            }
+            .NavBarLink{
+                font-size: 1.2em;
+            }
+            .NavBarLink:hover{
+                font-size: 1.3em;
+            }
+        }

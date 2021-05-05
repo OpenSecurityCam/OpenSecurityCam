@@ -34,3 +34,9 @@
         height: 400px;
     }
 }
+@media only screen and (min-width: 521px) and (max-width: 640px) {
+    #form_design{
+        width: 520px;
+        height: 400px;
+    }
+}
