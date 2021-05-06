@@ -1,4 +1,4 @@
-#!/home/todorov/Documents/OpenSecurityCam/enviroments/OSC/bin/python3
+#!/home/todorov/Documents/OpenSecurityCam/enviroments/OSC/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

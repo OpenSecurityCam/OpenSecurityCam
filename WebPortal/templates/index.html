@@ -1,5 +1,7 @@
 {% extends 'base.html'%}
 
+
+
 {% block head %}
 <title>Live Feed</title>
 <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
@@ -10,17 +12,47 @@
 <h2>Live Video Feed</h2>
 
 <video id=vid1 width=800 height=600 class="video-js vjs-default-skin vjs-big-play-centered" controls muted preload>
-  <source src="http://79.124.19.242:8081/playlist.m3u8" type="application/x-mpegURL">
+  <source src="http://localhost:5000/playlist.m3u8" type="application/x-mpegURL">
 </video>
 
 <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
 <script src="{{ url_for('static', filename='js/videojs/videojs-http-streaming.js') }}"></script>
 <script src="//vjs.zencdn.net/7.10.2/video.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-record/4.4.0/videojs.record.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-record/4.4.0/css/videojs.record.min.css"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.6.2/RecordRTC.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.6.2/RecordRTC.js"></script>
 
 <script>
-var player = videojs('vid1', autoplay=true, preload=true, controls=true);
-player.play();
+let options = {
+  // video.js options
+  controls: true,
+  autoplay: true,
+  preload: true,
+  bigPlayButton: false,
+  loop: false,
+  fluid: false,
+  width: 320,
+  height: 240,
+  plugins: {
+      // videojs-record plugin options
+      record: {
+          image: false,
+          audio: false,
+          video: true,
+          displayMilliseconds: true,
+          debug: true
+      }
+  }
+};
+let player = videojs('vid1', options, function() {
+  // print version information at startup
+  const msg = 'Using video.js ' + videojs.VERSION +
+      ' with videojs-record ' + videojs.getPluginVersion('record');
+  videojs.log(msg);
 
+  console.log("videojs-record is ready!");
+});
 </script>
 
 {% if SystemState: %}

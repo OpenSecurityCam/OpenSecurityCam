@@ -6,19 +6,21 @@
 
 {% block body %}
 <form id="form_design" action="#" method='POST'>
-    <h4>Change Username for {{userToChange}}</h4>
+    <h2>Change Username for {{userToChange}}</h2>
+    {{form.hidden_tag()}}
     <!-- Username -->
     {{form.username.label(class='formText')}}
     <br>
     {{form.username(class='formInput')}}
+    
     {% if form.username.errors %}
         {% for error in form.username.errors%}
             <br><p5>{{error}}</p5>
         {% endfor %}
     {% endif %}
     <br>
-    <!-- Password -->
-    {% if current_user.isAdmin == True %}
+    {% if current_user.isAdmin != True %}
+        <!-- Password -->
         {{form.password.label(class="formText")}}
         <br>
         {{form.password(class="formInput")}}
@@ -28,7 +30,6 @@
             {% endfor %}
         {% endif %}
         <br>
-    
         <!-- ConfirmPassword -->
         {{form.confirmPass.label(class='formText')}}
         <br>
@@ -38,7 +39,7 @@
                 <br><p5>{{error}}</p5>
             {% endfor %}
         {% endif %}
-        <br>
+    <br>
     {% endif %}
     <!-- Submit form -->
     {{form.submit(class='SubmitBtn')}}

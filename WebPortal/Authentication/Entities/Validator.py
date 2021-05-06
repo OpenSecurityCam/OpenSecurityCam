@@ -11,11 +11,7 @@ class Validator():
         # Finding user
         FoundUser = users.query.filter_by(username = loginForm.username.data).first()
         # Check if a user is already logged in the current session
-        if current_user.is_authenticated:
-            # If yes, it redirects the user to the Userinfo page
-            flash("Already Logged in", 'Failed')
-            return redirect(url_for('UserControl.Userinfo'))
-        elif loginForm.validate_on_submit():
+        if loginForm.validate_on_submit():
             # If no, login the user
             return self.__LoginUser(loginForm, FoundUser)
         else:

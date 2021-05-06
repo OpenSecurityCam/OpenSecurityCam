@@ -2,7 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="{{ url_for('static', filename="css/main.css" )}}">
-        
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
         {% if current_user.is_authenticated: %}
             <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
             <script>
@@ -24,6 +24,7 @@
             <div class = "NavigationBar">
                 <a class="NavBarLink" href="/">Main Page</a>
                 <a class="NavBarLink" href="{{url_for('UserControl.Userinfo')}}">{{current_user.username}}</a>
+                <a class="NavBarLink" href="{{url_for('Recordings.GetRecordingsList')}}">Recordings</a>
                 <a class="NavBarLink" href="{{url_for('UserControl.Logout')}}">Log Out</a>
             </div>
         </div>

@@ -37,8 +37,7 @@ Mako==1.1.3
 Markdown==3.3.3
 MarkupSafe==1.1.1
 msgpack==1.0.2
-mysql==0.0.2
-mysqlclient==2.0.3
+mysql-connector-python
 numpy==1.19.4
 onesignal-notifications==0.2.6
 onesignal-sdk==2.0.0

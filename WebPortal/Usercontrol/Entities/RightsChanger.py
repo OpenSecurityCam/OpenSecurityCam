@@ -32,14 +32,14 @@ class RightsChangerClass:
 
     # Changes the user rights to admin
     def __ChangeToAdmin(self, foundUser):
-        foundUser.isAdmin = True;
+        foundUser.isAdmin = True
         db.session.commit()
         flash(f'{foundUser.username} is now an admin.', 'Success')
         return redirect(url_for('UserControl.AdminPanel'))
 
     # Changes the user rights to regular
     def __ChangeToNormal(self, foundUser):
-        foundUser.isAdmin = False;
+        foundUser.isAdmin = False
         db.session.commit()
         flash(f'{foundUser.username} is not an admin anymore.', 'Success')
         return redirect(url_for('UserControl.AdminPanel'))

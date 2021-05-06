@@ -4,7 +4,8 @@ from flask_login import current_user
 from werkzeug.wrappers import Response
 import sys
 sys.path.append('..')
-from stateClass import State
+
+from WebPortal.Notifications.routes import armTriggerClass
 
 MainPage = Blueprint('MainPage', __name__)
 
@@ -24,7 +25,7 @@ def add_header(response):
 def Home():
     # Checks if the user is authenticated
     if current_user.is_authenticated:
-        return render_template('index.html', SystemState = State.state)
+        return render_template('index.html', SystemState = armTriggerClass.state)
     else:
         # If not it redirects them to the login page
         return redirect(url_for('Authentication.Login'))  

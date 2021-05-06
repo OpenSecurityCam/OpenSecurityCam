@@ -6,14 +6,7 @@
     background-size: cover;
     background-position: center center;
     background-attachment: local;
-    margin: auto;
-    display: block;
-    margin: auto;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top:0;
+    margin: 20px auto 0 auto;
     width: 800px;
     height: 450px;
 
@@ -24,6 +17,12 @@
     -webkit-box-shadow: 0px 0px 25px 0px rgba(50, 50, 50, 0.72);
     -moz-box-shadow:    0px 0px 25px 0px rgba(50, 50, 50, 0.72);
     box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+}
+.PicFormDesign
+{
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
 }
 
 .PicFormDesign
@@ -69,4 +68,42 @@
 {
     display: block;
     margin: auto;
+}
+
+/* Дизайн за до 440px екрани */
+@media only screen and (max-width: 440px){
+    .PicDesign{
+        width: 350px;
+        height: 400px;
+    }
+    .ChosePicFile{
+    padding-left: 70px;
+    }
+}
+@media only screen and (min-width: 441px) and (max-width: 520px) {    
+    .PicDesign{
+        width: 440px;
+        height: 400px;
+    }
+    .ChosePicFile{
+    padding-left: 70px;
+    }
+}
+@media only screen and (min-width: 521px) and (max-width: 640px) {
+    .PicDesign{
+        width: 520px;
+        height: 450px;
+    }
+    .ChosePicFile{
+    padding-left: 70px;
+    }
+}
+@media only screen and (min-width: 641px) and (max-width: 900px) {
+    .PicDesign{
+        width: 640px;
+        height: 450px;
+    }
+    .ChosePicFile{
+    padding-left: 70px;
+    }
 }
