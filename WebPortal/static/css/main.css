@@ -52,6 +52,8 @@ h1
     font-size: 48px;
     text-align: center;
 }
+
+
 h2 
 {
     text-align: center;
@@ -61,6 +63,7 @@ h2
     margin-bottom: 0px;
     padding: 12px 0;
 }
+
 h3
 {
     color: white;
@@ -114,6 +117,7 @@ p5
     font-weight: 700;
     width: 100%;
 }
+
 .NavBarLink
 {
     color: white;
@@ -123,6 +127,7 @@ p5
     width: 100%;
     transition: 0.4s;
 }
+
 .NavBarLink:hover
 {
     color: rgb(85, 85, 85);
@@ -172,13 +177,7 @@ p5
     background-size: cover;
     background-position: center center;
     background-attachment: local;
-    margin: auto;
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    margin: 20px auto 0 auto;
     width: 700px;
     height: 450px;
     -webkit-border-radius: 25px;
@@ -187,6 +186,13 @@ p5
     -webkit-box-shadow: 0px 0px 25px 0px rgba(50, 50, 50, 0.72);
     -moz-box-shadow:    0px 0px 25px 0px rgba(50, 50, 50, 0.72);
     box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+}
+
+#form_design
+{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -246,6 +252,7 @@ label
     100px;
 }
 
+
 /* бутон + шрифт */
 .SubmitBtn
 {
@@ -262,3 +269,103 @@ label
     margin: auto;
     
 }
+
+.Content
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 440px) {
+    h1{
+    font-size: 2em;
+    }
+    h2, h3, h4{
+        font-size: 1em;
+    }
+    .TopBarTitle{
+    font-size: 2em;
+    }
+    .checkBox{
+        margin: 3px 0px 15px 50px;
+    }
+    .formText{
+        margin: 10px 0px 10px 50px;
+    }
+    label{
+        padding-top: 5px;
+    }
+    #form_design{
+        width: 350px;
+        height: 400px;
+    }
+    .NavBarLink{
+        font-size: 1.1em;
+    }
+    .NavBarLink:hover{
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (min-width: 441px) and (max-width: 520px) {    
+        h1{
+        font-size: 1.9em;
+        }
+        h2, h3, h4{
+            font-size: 1em;
+        }
+        .TopBarTitle{
+        font-size: 1.9em;
+        }
+        .checkBox{
+            margin: 3px 0px 15px 45px;
+        }
+        .formText{
+            margin: 0px 0px 10px 45px;
+        }
+        label{
+            padding-top: 10px;
+        }
+        #form_design{
+            width: 350px;
+            height: 400px;
+        }
+        .NavBarLink{
+            font-size: 1.1em;
+        }
+        .NavBarLink:hover{
+            font-size: 1.2em;
+        }
+    }
+    @media only screen and (min-width: 521px) and (max-width: 640px) {
+            h1{
+            font-size: 2.2em;
+            }
+            h2, h3, h4{
+                font-size: 1.3em;
+            }
+            .TopBarTitle{
+            font-size: 2.2em;
+            }
+            .checkBox{
+                margin: 3px 0px 15px 70px;
+            }
+            .formText{
+                margin: 0px 0px 10px 70px;
+            }
+            label{
+                padding-top: 10px;
+            }
+            #form_design{
+                width: 350px;
+                height: 400px;
+            }
+            .NavBarLink{
+                font-size: 1.2em;
+            }
+            .NavBarLink:hover{
+                font-size: 1.3em;
+            }
+        }

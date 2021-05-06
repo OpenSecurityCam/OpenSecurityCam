@@ -5,12 +5,7 @@
     background-size: cover;
     background-position: center center;
     background-attachment: local;
-    margin: auto;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top:0;
+    margin: 20px auto 0 auto;
     width: 900px;
     height: 500px;
 
@@ -22,6 +17,8 @@
     -moz-box-shadow:    0px 0px 25px 0px rgba(50, 50, 50, 0.72);
     box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
 }
+
+
 /* Потребителски настройки */
 
 /* Потребителско поле */
@@ -39,6 +36,8 @@
     width: 100%;
     transition: 0.4s;
 }
+
+
 .ControlUserMenuLink:hover
 {
     color: rgb(95, 95, 95);
@@ -47,4 +46,43 @@
     width: 100%;
     transition: 0.4s;
     
+}
+
+/* Дизайн за до 440px екрани */
+@media only screen and (max-width: 440px){
+    #userinfo{
+        width: 350px;
+        height: 450px;
+    }
+    .ControlUserMenuLink:hover{
+        font-size: 1em;
+    }
+    .ControlUserMenuLink{
+        font-size: 1em;
+    }
+}
+@media only screen and (min-width: 441px) and (max-width: 520px) {
+    #userinfo{
+        width: 440px;
+        height: 450px;
+    }
+    .ControlUserMenuLink:hover{
+        font-size: 1em;
+    }
+    .ControlUserMenuLink{
+        font-size: 1em;
+    }
+}
+
+@media only screen and (min-width: 521px) and (max-width: 640px) {
+    #userinfo{
+        width: 520px;
+        height: 500px;
+    }
+    .ControlUserMenuLink:hover{
+        font-size: 1.2em;
+    }
+    .ControlUserMenuLink{
+        font-size: 1.2em;
+    }
 }

@@ -2,8 +2,8 @@
 #vid1
 {
     margin: auto;
-    width: 45%;
-    height: 400px;
+    width: 90%;
+    height: 600px;
 }
 
 /* бутон на video */
@@ -14,8 +14,7 @@
     background: white;
     border-radius: 50px;
     padding: 5px;
-    margin: 15px;
-    margin: center;
+    margin: 15px calc(90% - 150px) 15px 0;
     cursor: pointer;
     font-family: 'Montserrat';
     font-size: 18px;
@@ -30,11 +29,26 @@
     background: white;
     border-radius: 50px;
     padding: 5px;
-    margin: 15px;
-    margin: center;
+    margin: 15px calc(90% - 150px) 15px 0;
     cursor: pointer;
     font-family: 'Montserrat';
     font-size: 20px;
     font-weight: 500;
     transition: 0.4s;
+}
+@media only screen and (max-width: 440px){
+    #vid1{
+        height: 300px;
+    }
+}
+@media only screen and (min-width: 441px) and (max-width: 520px) {
+    
+    #vid1{
+        height: 350px;
+    }
+}
+@media only screen and (min-width: 521px) and (max-width: 640px) {
+    #vid1{
+        height: 400px;
+    }
 }

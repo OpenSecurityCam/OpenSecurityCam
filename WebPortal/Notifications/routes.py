@@ -5,10 +5,12 @@ from WebPortal.Notifications.Entities.Trigger_Armed_Unarmed import ArmTriggerCla
 
 Notifications = Blueprint('Notifications', __name__)
 
+armTriggerClass = ArmTriggerClass()
+
 # Handles the ArnSystem button using WebSockets
 @SocketIOClient.on('Toggle_Arm')
 def HandleTrigger():
-    ArmTriggerClass.HandleSystemArm()
+    armTriggerClass.HandleSystemArm()
 
 # returns the update worker for the Onesignal notification service
 @Notifications.route('/OneSignalSDKUpdaterWorker.js')

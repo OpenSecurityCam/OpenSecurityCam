@@ -13,13 +13,10 @@ print("Setting up the first user")
 username = input("Username: ")
 password = input("Password: ")
 
-try:
-    db.create_all(app=create_WebPortal())
+db.create_all(app=create_WebPortal())
 
-    hashedPass = bcrypt.generate_password_hash(f"{password}")
-    user = users(f"{username}", hashedPass, 1)
+hashedPass = bcrypt.generate_password_hash(f"{password}")
+user = users(f"{username}", hashedPass, 1)
 
-    db.session.add(user)
-    db.session.commit()
-except:
-    print('User already created!')
+db.session.add(user)
+db.session.commit()
