@@ -54,3 +54,8 @@
         height: 400px;
     }
 }
+@media only screen and (min-width: 641px) and (max-width: 900px) {
+    #vid1{
+        height: 500px;
+    }
+}

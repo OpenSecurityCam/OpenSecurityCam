@@ -5,17 +5,31 @@
 {% block head %}
 <title>Recordings</title>
 <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
-<link rel="stylesheet" href="{{ url_for('static', filename="css/MainVideo.css") }}">
+<link rel="stylesheet" href="{{ url_for('static', filename="css/recording.css") }}">
+
 {% endblock %}
 
 {% block body %}
+<div class="RecordingControlBox">
+    <table class="center">
+        <tr>
+            <th>Download</th>
+            <th>Video Name</th>
+            <th>Video Date</th>
+            <th>Delete</th>
+        </tr>
     {% for video in recordings_list: %}
         {% if video.is_file(): %}
-            <a href="{{ url_for('Recordings.DownloadRecording', recording=video.name) }}">Download</a>
-            <p1>{{ video.name }}</p1>
-            <p1>{{ (datetime.datetime.fromtimestamp(video.stat().st_mtime) | string)[:19] }}</p1>
-            <a href="{{ url_for('Recordings.DeleteRecording', recording=video.name) }}">Delete</a>
+        <tr>
+            
+                <td><a class="RecordingControlLink" href="{{ url_for('Recordings.DownloadRecording', recording=video.name) }}">Download</a></td>
+                <td><a class="RecordingControlLink" <p1>{{ video.name }} </p1></a></td>
+                <td><a class="RecordingControlLink" <p1>{{ (datetime.datetime.fromtimestamp(video.stat().st_mtime) | string)[:19] }}</p1></a></td>
+                <td><a class="RecordingControlLink" href="{{ url_for('Recordings.DeleteRecording', recording=video.name) }}">Delete</a></td>
             <br>
         {% endif %}
     {% endfor %}
+</tr>
+</table>
+</div>
 {% endblock %}

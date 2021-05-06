@@ -1,0 +1,158 @@
+/* Фон на User Control */
+.RecordingControlBox
+{
+    background-image: url(Form_Background.png);
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: local;
+    margin: 20px auto 0 auto;
+    width: 50%;
+    height: 400px;
+
+    /* Сянка */
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    -webkit-box-shadow: 0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+    -moz-box-shadow:    0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+    box-shadow:         0px 0px 25px 0px rgba(50, 50, 50, 0.72);
+}
+.RecordingControlBox
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* User Control */
+.RecordingControlLink
+{
+    color: #b8bcc5;
+    text-decoration: none;
+    margin: auto;
+    position: block;
+    transition: 0.4s;
+}
+
+.RecordingControlLink:hover
+{
+    color: #454954;
+    text-decoration: none;
+    margin: auto;
+    position: block;
+    transition: 0.4s;
+}
+
+
+
+
+/* Информация в клетките */
+
+/* Таблица подравняване */
+table.center
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Таблица големина */
+.table
+{
+      width: 100%;
+      display:block;
+}
+
+/* Таблица клетки */
+thead {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+}
+tbody {
+    height: 250px;
+    display: inline-block;
+    width: 100%;
+    overflow: auto;
+}
+  
+td, th 
+{
+
+    font-size: 22px;
+    
+    padding: 
+    /* между input и label */
+    10px 
+
+    /* дясно */
+    20px 
+
+    /* междуредие */
+    10px
+
+    /* ляво*/
+    10px;
+
+    color: white;
+    text-align: left;
+}
+
+
+
+/* Дизайн за телефони до 440px */
+@media only screen and (max-width: 440px) {
+    .RecordingControlBox{
+        width: 80%;
+        height: 400px;
+    }
+    td, th{
+        font-size: 1em;
+        padding: 10px 15px 10px 10px;
+    }
+    thead {
+        width: 60%;
+    }
+    tbody {
+        width: 60%;
+    }
+}
+@media only screen and (min-width: 441px) and (max-width: 520px) {
+    .RecordingControlBox{
+        width: 80%;
+        height: 400px;
+    }
+
+    td, th{
+        font-size: 1em;
+        padding: 10px 10px 10px 10px;
+    }
+    thead {
+        width: 75%;
+    }
+    tbody {
+        width: 75%;
+    }
+
+}
+/* Дизайн за различни екрани */
+@media only screen and (min-width: 521px) and (max-width: 640px) {
+    .RecordingControlBox{
+        width: 80%;
+        height: 400px;
+    }
+
+    td, th{
+        font-size: 1.2em;
+        padding: 10px 10px 10px 10px;
+    }
+    thead {
+        width: 78%;
+    }
+    tbody {
+        width: 78%;
+    }
+}

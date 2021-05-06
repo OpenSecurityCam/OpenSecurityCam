@@ -86,3 +86,15 @@
         font-size: 1.2em;
     }
 }
+@media only screen and (min-width: 641px) and (max-width: 900px) {
+    #userinfo{
+        width: 640px;
+        height: 500px;
+    }
+    .ControlUserMenuLink:hover{
+        font-size: 1.2em;
+    }
+    .ControlUserMenuLink{
+        font-size: 1.2em;
+    }
+}
