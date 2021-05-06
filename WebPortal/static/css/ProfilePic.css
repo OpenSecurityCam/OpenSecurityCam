@@ -98,3 +98,12 @@
     padding-left: 70px;
     }
 }
+@media only screen and (min-width: 641px) and (max-width: 900px) {
+    .PicDesign{
+        width: 640px;
+        height: 450px;
+    }
+    .ChosePicFile{
+    padding-left: 70px;
+    }
+}
