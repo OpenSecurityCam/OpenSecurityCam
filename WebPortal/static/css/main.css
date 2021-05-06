@@ -202,7 +202,7 @@ label
     color: white;
     padding-top: 10px;
     text-align: center;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat',;
 }
 
 /* Заглавия на input формите */
@@ -338,8 +338,8 @@ label
         .NavBarLink:hover{
             font-size: 1.2em;
         }
-    }
-    @media only screen and (min-width: 521px) and (max-width: 640px) {
+}
+@media only screen and (min-width: 521px) and (max-width: 640px) {
             h1{
             font-size: 2.2em;
             }
@@ -368,4 +368,34 @@ label
             .NavBarLink:hover{
                 font-size: 1.3em;
             }
-        }
+}
+@media only screen and (min-width: 641px) and (max-width: 820px) {
+            h1{
+            font-size: 2.3em;
+            }
+            h2, h3, h4{
+                font-size: 1.4em;
+            }
+            .TopBarTitle{
+            font-size: 2.3em;
+            }
+            .checkBox{
+                margin: 3px 0px 15px 90px;
+            }
+            .formText{
+                margin: 0px 0px 10px 90px;
+            }
+            label{
+                padding-top: 10px;
+            }
+            #form_design{
+                width: 350px;
+                height: 400px;
+            }
+            .NavBarLink{
+                font-size: 1.3em;
+            }
+            .NavBarLink:hover{
+                font-size: 1.4em;
+            }
+}

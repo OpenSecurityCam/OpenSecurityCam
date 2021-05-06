@@ -220,3 +220,63 @@ td, th
     }
 
 }
+/* само за Admin panel има 2 queries разделени то 720 
+и 720-950 заради големината на таблицата */
+@media only screen and (min-width: 641px) and (max-width: 720px) {
+    .UserControlBox{
+        width: 80%;
+        height: 400px;
+    }
+
+    td, th{
+        font-size: 1.2em;
+        padding: 10px 18px 10px 10px;
+    }
+    thead {
+        width: 80%;
+    }
+    tbody {
+        width: 80%;
+    }
+
+    .ProfilePictureAdminPanel
+    {
+        width: 50px;
+        height: 50px;
+    }
+    .ProfilePictureAdminPanel:hover
+    {
+        width: 50px;
+        height: 50px;
+    }
+
+}
+@media only screen and (min-width: 721px) and (max-width: 950px) {
+    .UserControlBox{
+        width: 80%;
+        height: 400px;
+    }
+
+    td, th{
+        font-size: 1.2em;
+        padding: 10px 10px 10px 10px;
+    }
+    thead {
+        width: 90%;
+    }
+    tbody {
+        width: 90%;
+    }
+
+    .ProfilePictureAdminPanel
+    {
+        width: 50px;
+        height: 50px;
+    }
+    .ProfilePictureAdminPanel:hover
+    {
+        width: 50px;
+        height: 50px;
+    }
+
+}
