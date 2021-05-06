@@ -1,5 +1,6 @@
 import keyboard
 import sys 
+
 sys.path.append('../../..')
 from WebPortal.Notifications.Entities.Notifications import Notifications
 from WebPortal.Notifications.routes import armTriggerClass
