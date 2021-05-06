@@ -70,7 +70,7 @@
     margin: auto;
 }
 
-/* Дизайн за до 440px екрани */
+/* Дизайн за различни екрани */
 @media only screen and (max-width: 440px){
     .PicDesign{
         width: 350px;
