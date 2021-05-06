@@ -1,2 +1,2 @@
 export FLASK_APP=app.py
-(trap 'kill 0' SIGINT; sudo ffmpeg -f v4l2 -i /dev/video0 -f v4l2 /dev/video2 -f v4l2 /dev/video3 & gst-launch-1.0 v4l2src device=/dev/video2 ! videoconvert ! clockoverlay ! x264enc tune=zerolatency ! mpegtsmux ! hlssink playlist-root=http://localhost:5000 playlist-location=WebPortal/MainPage/video/playlist.m3u8 location=WebPortal/MainPage/video/segment%05d.ts target-duration=1 max-filess=5 & flask run --no-reload)
+flask run --no-reload --host=0.0.0.0
