@@ -27,10 +27,12 @@ def create_WebPortal(config_class = Config):
     from WebPortal.Usercontrol.routes import UserControl
     from WebPortal.MainPage.routes import MainPage
     from WebPortal.Notifications.routes import Notifications
+    from WebPortal.Recordings.routes import Recordings
 
     app.register_blueprint(MainPage)
     app.register_blueprint(UserControl)
     app.register_blueprint(Authentication)
     app.register_blueprint(Notifications)
+    app.register_blueprint(Recordings)
 
     return app
