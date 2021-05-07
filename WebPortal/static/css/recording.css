@@ -47,7 +47,21 @@
     transition: 0.4s;
 }
 
-
+.RecBtn
+{
+    color: white;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-size: 22px;
+    font-weight: 400;
+    transition: 0.4s;
+}
+.RecBtn:hover
+{
+    font-size: 26px;
+    text-decoration: none;
+}
 
 
 /* Информация в клетките */
@@ -131,17 +145,16 @@ td, th
         padding: 10px 10px 10px 10px;
     }
     thead {
-        width: 75%;
+        width: 80%;
     }
     tbody {
-        width: 75%;
+        width: 80%;
     }
-
 }
 /* Дизайн за различни екрани */
 @media only screen and (min-width: 521px) and (max-width: 640px) {
     .RecordingControlBox{
-        width: 80%;
+        width: 70%;
         height: 400px;
     }
 
@@ -150,9 +163,63 @@ td, th
         padding: 10px 10px 10px 10px;
     }
     thead {
-        width: 78%;
+        width: 70%;
     }
     tbody {
-        width: 78%;
+        width: 70%;
+    }
+}
+/* само за Admin panel има 2 queries разделени то 720 
+и 720-950 заради големината на таблицата */
+@media only screen and (min-width: 641px) and (max-width: 720px) {
+    .RecordingControlBox{
+        width: 70%;
+        height: 400px;
+    }
+
+    td, th{
+        font-size: 1.2em;
+        padding: 10px 18px 10px 10px;
+    }
+    thead {
+        width: 80%;
+    }
+    tbody {
+        width: 80%;
+    }
+
+}
+@media only screen and (min-width: 721px) and (max-width: 950px) {
+    .RecordingControlBox{
+        width: 70%;
+        height: 400px;
+    }
+
+    td, th{
+        font-size: 1.2em;
+        padding: 10px 10px 10px 10px;
+    }
+    thead {
+        width: 95%;
+    }
+    tbody {
+        width: 95%;
+    }
+}
+@media only screen and (min-width: 951px) and (max-width: 1115px) {
+    .RecordingControlBox{
+        width: 70%;
+        height: 400px;
+    }
+
+    td, th{
+        font-size: 1.3em;
+        padding: 10px 10px 10px 10px;
+    }
+    thead {
+        width: 90%;
+    }
+    tbody {
+        width: 90%;
     }
 }

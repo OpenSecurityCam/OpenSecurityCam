@@ -6,11 +6,13 @@
 <title>Recordings</title>
 <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
 <link rel="stylesheet" href="{{ url_for('static', filename="css/recording.css") }}">
-
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 {% endblock %}
 
 {% block body %}
 <div class="RecordingControlBox">
+    <a class="RecBtn">Recordings</a>     
+
     <table class="center">
         <tr>
             <th>Download</th>
