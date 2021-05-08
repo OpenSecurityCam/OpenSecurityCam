@@ -117,7 +117,13 @@ p5
     font-weight: 700;
     width: 100%;
 }
-
+.TopBarPicture
+{
+    color: white;
+    text-decoration: none;
+    padding: 12px 12px 12px 12px;
+    width: 40%;
+}
 .NavBarLink
 {
     color: white;
@@ -293,6 +299,12 @@ label
     .TopBarTitle{
     font-size: 2em;
     }
+    .TopBarPicture{
+    color: white;
+    text-decoration: none;
+    padding: 12px 12px 12px 12px;
+    width: 90%;
+    }
     .checkBox{
         margin: 3px 0px 15px 50px;
     }
@@ -324,6 +336,12 @@ label
         .TopBarTitle{
         font-size: 1.9em;
         }
+        .TopBarPicture{
+            color: white;
+            text-decoration: none;
+            padding: 12px 12px 12px 12px;
+            width: 90%;
+            }
         .checkBox{
             margin: 3px 0px 15px 45px;
         }
@@ -354,6 +372,12 @@ label
             .TopBarTitle{
             font-size: 2.2em;
             }
+            .TopBarPicture{
+                color: white;
+                text-decoration: none;
+                padding: 12px 12px 12px 12px;
+                width: 90%;
+                }
             .checkBox{
                 margin: 3px 0px 15px 70px;
             }
@@ -384,6 +408,12 @@ label
             .TopBarTitle{
             font-size: 2.3em;
             }
+            .TopBarPicture{
+                color: white;
+                text-decoration: none;
+                padding: 12px 12px 12px 12px;
+                width: 85%;
+                }
             .checkBox{
                 margin: 3px 0px 15px 90px;
             }
@@ -403,4 +433,19 @@ label
             .NavBarLink:hover{
                 font-size: 1.4em;
             }
-}
+        }
+        @media only screen and (min-width: 821px) and (max-width: 1115px) {
+            .TopBarPicture{
+                    color: white;
+                    text-decoration: none;
+                    padding: 12px 12px 12px 12px;
+                    width: 85%;
+                    }
+        }@media only screen and (min-width: 1116px) and (max-width: 1500px) {
+            .TopBarPicture{
+                    color: white;
+                    text-decoration: none;
+                    padding: 12px 12px 12px 12px;
+                    width: 55%;
+                    }
+        }

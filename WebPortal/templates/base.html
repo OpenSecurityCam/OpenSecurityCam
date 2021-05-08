@@ -20,7 +20,8 @@
     <body>
         {% if current_user.is_authenticated: %}
         <div class="TopBar">
-            <div class="TopBarTitle">OpenSecurityCam WebPortal</div>
+            <img class="TopBarPicture" src="{{url_for('static', filename='OSC_Logo.png')}}" align="middle" />
+            
             <div class = "NavigationBar">
                 <a class="NavBarLink" href="/">Main Page</a>
                 <a class="NavBarLink" href="{{url_for('UserControl.Userinfo')}}">Profile</a>
